@@ -3,206 +3,1300 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Toktogul Battery: Kyrgyzstan's winter electricity, seen by NISAR radar</title>
-<meta name="description" content="Water surface of the Toktogul reservoir measured from NASA-ISRO NISAR radar images, June to October 2026.">
+<title>Toktogul Battery: how charged is Kyrgyzstan’s winter battery?</title>
+<meta name="description" content="The Toktogul reservoir is Kyrgyzstan’s main store of winter electricity. See how much water it holds in free NASA-ISRO NISAR radar images, explained simply for everyone.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Toktogul Battery: how charged is Kyrgyzstan’s winter battery?">
+<meta property="og:description" content="Kyrgyzstan’s winter electricity depends on one reservoir. See how full it is in NASA radar images, explained simply.">
+<meta name="theme-color" content="#e6f4fc">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231576b3'/%3E%3Cpath d='M16 6c4 5 7 8.4 7 12a7 7 0 0 1-14 0c0-3.600 3-7 7-12z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#edf1f2;--ink:#13222c;--slate:#51626b;--line:#c5d0d4;--water:#1c6e8c;--gain:#c98a00;--plate:#0e1a21;--shore:#4dd8f0;--amber:#ffb81c}
+:root{--ink:#12314a;--ink2:#3d5a73;--muted:#5d7488;--line:#d9e6ef;--sky:#eef7fd;--white:#fff;--sand:#fff5df;
+--blue:#1576b3;--blue-d:#0f5c8e;--water:#2f9bd0;--water-l:#d8eefb;--sun:#ffc531;--stop:#d9482b;--shore:#4dd8f0;--amber:#ffb81c;--panel:#0f2a43;
+--r:22px;--shadow:0 12px 34px rgba(18,49,74,.1);--head:56px;--font:"Rubik",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 *{box-sizing:border-box}
-html{font-size:17px}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-a{color:var(--water);text-underline-offset:3px}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
-h1,h2{font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:-.01em;margin:0}
-h1{font-size:clamp(2.1rem,5.2vw,3.5rem);line-height:1.06;max-width:15ch}
-h2{font-size:clamp(1.45rem,2.8vw,1.95rem);line-height:1.15;margin-bottom:.5rem}
-p{margin:0 0 .9rem;max-width:68ch}
-.masthead{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--line);font-size:.9rem;color:var(--slate)}
-.masthead strong{color:var(--ink);font-weight:600}
-.hero{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:48px;padding:52px 0 44px;align-items:start}
-.lede{font-size:1.2rem;margin-top:1.1rem;max-width:46ch}
-.facts{margin:1.6rem 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
-.facts li{padding:.7rem 0;border-bottom:1px solid var(--line);max-width:52ch}
-.facts b{font-weight:600}
-.gauge figcaption{font-size:.9rem;color:var(--slate);margin-top:.6rem;max-width:34ch}
-.gauge svg{display:block;width:100%;max-width:330px;height:auto}
-section{padding:40px 0;border-top:1px solid var(--line)}
-.plate{background:var(--plate);padding:10px;margin-top:1rem}
-.plate canvas{display:block;width:100%;height:auto;image-rendering:auto}
-.controls{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;margin-top:14px}
-.controls input[type=range]{width:100%;accent-color:var(--water)}
-button{font:inherit;font-weight:600;color:#fff;background:var(--water);border:0;padding:.5rem 1rem;cursor:pointer}
-button.quiet{background:transparent;color:var(--water);box-shadow:inset 0 0 0 1.5px var(--water)}
-.row{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-top:12px}
-.row label{display:flex;gap:.45rem;align-items:center;cursor:pointer}
-.key{display:inline-block;width:1.1em;height:.3em;vertical-align:middle;margin-right:.15em}
-.readout{margin-top:14px;font-size:1.08rem;min-height:3.2em;max-width:none}
-.readout b{font-weight:600}
-.datelabel{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
-#chart{display:block;width:100%;height:auto;margin-top:1rem}
+html{font-size:18px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--font);line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section[id]{scroll-margin-top:calc(var(--head) + 6px)}
+a{color:var(--blue);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+h1,h2,h3{margin:0;font-weight:700;line-height:1.14;letter-spacing:-.015em}
+h1{font-size:clamp(2rem,3.1vw + .7rem,3.5rem);font-weight:800;line-height:1.06;letter-spacing:-.025em}
+h2{font-size:clamp(1.6rem,2.2vw + .9rem,2.4rem);max-width:24ch}
+h3{font-size:1.2rem;line-height:1.3;letter-spacing:-.005em}
+p{margin:0 0 .9rem}
+[hidden]{display:none!important}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:var(--ink);padding:.5rem .9rem;border-radius:8px;z-index:40}
+.skip:focus{left:8px}
+noscript p{background:var(--sun);color:#000;margin:0;padding:.8rem 1rem;text-align:center}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+
+/* header */
+.headbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(18,49,74,.1)}
+.head{display:flex;align-items:center;gap:16px;height:var(--head)}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand strong{font-size:1.04rem;font-weight:700;white-space:nowrap}
+.brand .by{font-size:.8rem;color:var(--muted);white-space:nowrap}
+.logo{width:32px;height:32px;flex:none}
+.nav{display:flex;gap:2px}
+.nav a{font-size:.86rem;font-weight:500;color:var(--ink2);text-decoration:none;padding:.32rem .66rem;border-radius:10px;white-space:nowrap}
+.nav a:hover{background:var(--sky);color:var(--ink)}
+.lang{display:flex;flex:none;padding:3px;background:var(--sky);border-radius:11px}
+.lang button{font:inherit;font-size:.8rem;font-weight:600;color:var(--muted);background:none;border:0;border-radius:8px;padding:.22rem .6rem;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--blue);color:#fff}
+
+/* first screen: the valley, alive */
+.hero{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#bce1f8 0%,#d8eefb 42%,#f4f3e0 74%,#fdf1d0 100%);transition:color .8s}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .9s;background:radial-gradient(circle at 8% 14%,#fff 0 1.2px,transparent 1.7px),radial-gradient(circle at 19% 31%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 31% 9%,#fff 0 1.3px,transparent 1.8px),radial-gradient(circle at 44% 22%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 57% 7%,#fff 0 1.2px,transparent 1.7px),radial-gradient(circle at 66% 27%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 73% 12%,#fff 0 1.3px,transparent 1.8px),radial-gradient(circle at 86% 30%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 94% 8%,#fff 0 1.2px,transparent 1.7px),linear-gradient(180deg,#122d4a 0%,#224468 58%,#4d6684 100%)}
+.hero.off::before{opacity:1}
+.hero.off{color:#fff}
+.hero-text{position:relative;z-index:3;padding-top:20px}
+h1 .pct{color:var(--blue);white-space:nowrap;transition:color .8s}
+.hero.off h1 .pct{color:#7fd0f5}
+.lede{font-size:1.1rem;line-height:1.5;color:var(--ink2);margin:.6rem 0 0;max-width:36em;transition:color .8s}
+.hero.off .lede{color:#d5e4f0}
+.scene{position:relative;z-index:1;line-height:0;aspect-ratio:1200/440}
+.scene svg{display:block;width:100%;height:100%;overflow:visible}
+.sun,.moon,.cloud,.dusk{transition:opacity .9s}
+.moon,.dusk{opacity:0}
+.cloud{animation:drift 46s ease-in-out infinite alternate}
+.cloud.c2{animation-duration:62s;animation-direction:alternate-reverse}
+.win{fill:#ffd34d;transition:fill .6s}
+.glow{fill:#ffd34d;opacity:.4;transition:opacity .6s}
+.flowline{fill:none;stroke:#ffc531;stroke-width:3.2;stroke-linecap:round;stroke-dasharray:4 20;animation:dash 1.2s linear infinite;transition:opacity .5s}
+.pipe{fill:none;stroke:#3aa7dc;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6 6;animation:dash2 .9s linear infinite;transition:opacity .5s}
+.flow{fill:none;stroke:#d9f1fc;stroke-width:2;stroke-linecap:round;stroke-dasharray:14 26;animation:flow 2.4s linear infinite;transition:opacity .5s}
+.river{transform-box:fill-box;transform-origin:50% 0;transition:transform .9s}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 2.4s linear infinite}
+.wv{animation:wv 3.2s linear infinite}
+.smoke circle{transform-box:fill-box;transform-origin:center;opacity:0;animation:smoke 5.4s ease-out infinite}
+.smoke circle:nth-child(2){animation-delay:1.8s}
+.smoke circle:nth-child(3){animation-delay:3.6s}
+.sig path{fill:none;stroke:#1576b3;stroke-width:2.4;stroke-linecap:round;opacity:.12;animation:sig 1.8s ease-in-out infinite;transition:stroke .8s}
+.sig path:nth-child(2){animation-delay:.25s}
+.sig path:nth-child(3){animation-delay:.5s}
+.sat{animation:bob 7s ease-in-out infinite}
+.hero.off .sun{opacity:0}
+.hero.off .moon{opacity:1}
+.hero.off .cloud{opacity:.28}
+.hero.off .dusk{opacity:.54}
+.hero.off .win{fill:#2c4359}
+.hero.off .glow,.hero.off .flowline,.hero.off .pipe,.hero.off .flow{opacity:0}
+.hero.off .spin{animation-play-state:paused}
+.hero.off .river{transform:scaleY(.3)}
+.hero.off .sig path{stroke:#fff}
+@keyframes drift{to{transform:translateX(46px)}}
+@keyframes dash{to{stroke-dashoffset:-24}}
+@keyframes dash2{to{stroke-dashoffset:-12}}
+@keyframes flow{to{stroke-dashoffset:-40}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes wv{to{transform:translateX(-40px)}}
+@keyframes smoke{0%{transform:translate(0,0) scale(.6);opacity:0}15%{opacity:.75}100%{transform:translate(9px,-34px) scale(1.9);opacity:0}}
+@keyframes sig{0%,100%{opacity:.12}40%{opacity:.95}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(21,118,179,.55)}100%{box-shadow:0 0 0 16px rgba(21,118,179,0)}}
+.tags{position:absolute;inset:0;z-index:2;pointer-events:none;line-height:1.2}
+.stag{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:.72rem;font-weight:600;color:var(--ink);background:rgba(255,255,255,.95);border-radius:999px;padding:.2rem .6rem;box-shadow:0 2px 8px rgba(18,49,74,.16)}
+.stag.r{transform:translate(-100%,-50%)}
+.stag.stop{background:var(--stop);color:#fff}
+.stag.plain{background:none;box-shadow:none;color:#fff;font-size:.78rem;text-shadow:0 1px 3px rgba(12,60,100,.6)}
+.stag.live{background:var(--ink);color:#fff;transform:translate(-50%,-150%);font-variant-numeric:tabular-nums}
+.stag.live::after{content:"";position:absolute;left:50%;bottom:-4px;width:9px;height:9px;margin-left:-4.5px;background:var(--ink);transform:rotate(45deg);border-radius:1px}
+.lab-wrap{position:relative;z-index:4;display:flow-root}
+.lab{display:grid;grid-template-columns:auto minmax(0,1.15fr) minmax(0,1fr);gap:6px 26px;align-items:center;background:#fff;color:var(--ink);border-radius:22px;box-shadow:0 14px 40px rgba(18,49,74,.24);padding:13px 24px 13px 20px}
+.meter{display:flex;align-items:center;gap:12px;color:var(--ink)}
+.meter svg{display:block;width:74px;height:36px;flex:none}
+.meter b{display:block;font-size:1.8rem;font-weight:800;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;min-width:2.5ch}
+.meter span{display:block;font-size:.72rem;color:var(--muted);line-height:1.2;margin-top:3px;max-width:9em}
+.meter.bad{color:var(--stop)}
+.lab-top{display:flex;align-items:baseline;gap:12px}
+.lab-top b{font-size:.96rem;margin-right:auto}
+.linkbtn{font:inherit;font-size:.84rem;font-weight:600;color:var(--blue);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.slide{position:relative}
+.level{-webkit-appearance:none;appearance:none;display:block;width:100%;height:28px;margin:0;padding:0;background:none;cursor:pointer;--p:.5;--dead:.2;--fillc:var(--blue)}
+.level.bad{--fillc:var(--stop)}
+.level::-webkit-slider-runnable-track{height:10px;border-radius:5px;background:linear-gradient(90deg,var(--fillc) 0 calc(14px + (100% - 28px)*var(--p)),transparent 0),linear-gradient(90deg,#f5c7bb 0 calc(14px + (100% - 28px)*var(--dead)),#d5e6f2 0)}
+.level::-moz-range-track{height:10px;border-radius:5px;background:linear-gradient(90deg,var(--fillc) 0 calc(14px + (100% - 28px)*var(--p)),transparent 0),linear-gradient(90deg,#f5c7bb 0 calc(14px + (100% - 28px)*var(--dead)),#d5e6f2 0)}
+.level::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:28px;height:28px;margin-top:-9px;border-radius:50%;background:#fff;border:4px solid var(--fillc);box-shadow:0 2px 8px rgba(18,49,74,.32)}
+.level::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid var(--fillc);box-shadow:0 2px 8px rgba(18,49,74,.32)}
+.pulse{position:absolute;top:14px;left:calc(14px + (100% - 28px)*var(--p,.5));width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;pointer-events:none;animation:pulse 1.8s ease-out infinite}
+.lab-scale{position:relative;height:1.05rem;font-size:.7rem;color:var(--muted);white-space:nowrap}
+.lab-scale span{position:absolute;top:0;left:calc(14px + (100% - 28px)*var(--p));transform:translateX(-50%)}
+.lab-scale span:last-child{left:100%;transform:translateX(-100%)}
+.lab-scale .stop{color:var(--stop);font-weight:600}
+.lab-out{margin:0;font-size:.9rem;line-height:1.45;color:var(--ink2)}
+.lab-out b{color:var(--ink)}
+.lab-out .bad{color:var(--stop)}
+.capstrip{font-size:.8rem;color:var(--muted);margin:0 auto;padding-top:12px;padding-bottom:0}
+.capstrip a{color:inherit}
+@media (min-width:1080px){
+.hero{height:calc(100vh - var(--head));min-height:560px;max-height:780px}
+.scene{position:absolute;left:50%;bottom:0;width:100%;max-width:1680px;transform:translateX(-50%)}
+.lab-wrap{position:absolute;left:0;right:0;bottom:18px}
+.lab{width:min(1072px,calc(100% - 48px));margin:0 auto}
+}
+
+/* sections */
+.band{padding:76px 0}
+.band.tint{background:var(--sky)}
+.band.warm{background:var(--sand)}
+.band.first{padding-top:46px}
+.intro{font-size:1.14rem;color:var(--ink2);max-width:44em;margin-top:.9rem}
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:26px 24px 22px;display:flex;flex-direction:column}
+.card h3{margin-bottom:.45rem}
+.card p{color:var(--ink2)}
+.src{font-size:.84rem;color:var(--muted);margin:auto 0 0;padding-top:.3rem}
+.src a{color:inherit}
+
+/* the problem and what the site gives */
+.prob{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:60px;align-items:start}
+.klabel{display:flex;align-items:center;gap:.55rem;font-weight:600;font-size:.95rem;color:var(--stop);margin:0 0 .8rem}
+.klabel::before{content:"";width:10px;height:10px;border-radius:50%;background:currentColor;flex:none}
+.klabel.ok{color:var(--blue-d)}
+.prob h2{max-width:none}
+.prob .big{font-size:1.14rem;color:var(--ink2);margin:1.1rem 0 0;max-width:30em}
+.gives{display:grid;gap:12px}
+.give{display:grid;grid-template-columns:56px minmax(0,1fr) 22px;gap:16px;align-items:center;padding:15px 18px;border-radius:18px;background:var(--sky);color:var(--ink);text-decoration:none;transition:background .15s,transform .15s}
+.give:hover{background:#dff0fb;transform:translateX(4px)}
+.give .ic{display:block;width:56px;height:56px}
+.give b{display:block;font-size:1.08rem;line-height:1.3}
+.give .gt span{display:block;color:var(--ink2);font-size:.96rem;line-height:1.45;margin-top:2px}
+.give .arr{display:block;width:22px;height:22px}
+
+/* why it matters */
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:38px}
+.fact{display:flex;flex-direction:column;padding:2px 34px;border-left:2px solid #cfe2ee}
+.fact:first-child{padding-left:0;border-left:0}
+.fact:last-child{padding-right:0}
+.fact h3{margin-bottom:.45rem}
+.fact p{color:var(--ink2)}
+.bignum{font-size:clamp(2.6rem,4vw,3.5rem);font-weight:800;line-height:1;letter-spacing:-.03em;color:var(--blue);margin:14px 0 8px;white-space:nowrap}
+.pics{display:flex;flex-wrap:wrap;gap:4px;min-height:32px}
+.pics svg{width:24px;height:32px;fill:#c3d4e0;transition:fill .3s calc(var(--i,0)*70ms + .25s)}
+.js .rv:not(.in) .pics svg{fill:#c3d4e0}
+.pics svg.on{fill:var(--sun)}
+.pics svg.part{fill:#f2dc9a}
+.pics svg.hot{fill:#ff8a3d}
+.season{display:block;width:100%;height:auto;max-width:300px}
+.season-l{display:flex;justify-content:space-between;max-width:300px;font-size:.84rem;font-weight:600;color:var(--muted);margin-top:2px}
+
+/* how much water now */
+.now{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:60px;align-items:center}
+.tankfig{position:relative;margin:0}
+.tankfig svg{display:block;width:100%;height:auto}
+.tw{transform-box:fill-box;transform-origin:50% 100%;transition:transform 1.3s cubic-bezier(.2,.7,.2,1) .25s}
+.js .tankfig:not(.in) .tw{transform:scaleY(0)}
+.zones,.marks{position:absolute;top:0;bottom:0}
+.zones{left:3.8%;width:40.5%}
+.marks{left:53%;right:0}
+.zones p,.marks p{position:absolute;left:0;right:0;margin:0;transform:translateY(-50%);line-height:1.25}
+.zones p{text-align:center;font-size:.86rem;font-weight:600;padding:0 6px;color:var(--ink2)}
+.zones .on{color:#fff}
+.marks p{font-size:.95rem;color:var(--ink2)}
+.marks .now-mark{color:var(--ink);font-weight:700}
+.date{color:var(--muted);font-weight:500;margin-bottom:.5rem}
+.now-text h2{margin-bottom:1rem}
+.now-text h2 b{color:var(--blue);font-weight:800}
+.now-text p{color:var(--ink2);max-width:34em}
+.now-text .src{margin-top:.2rem}
+
+/* pictures from space */
+.viewer{background:var(--panel);color:#dfeaf3;border-radius:28px;padding:18px;margin-top:28px;box-shadow:0 22px 50px rgba(18,49,74,.22)}
+.vgrid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:22px}
+.plate{position:relative;align-self:start;border-radius:16px;overflow:hidden;background:#000;line-height:0}
+.plate canvas{display:block;width:100%;height:auto}
+.pins{position:absolute;inset:0;pointer-events:none;line-height:1.2}
+.pin{position:absolute;width:0;height:0}
+.pin::before{content:"";position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px rgba(8,18,25,.8)}
+.pin span{position:absolute;white-space:nowrap;font-size:.78rem;font-weight:600;color:#fff;background:rgba(8,18,25,.84);border:1px solid rgba(255,255,255,.3);padding:.2rem .6rem;border-radius:9px}
+.pin.t span{left:0;bottom:11px;transform:translateX(-50%)}
+.pin.b span{left:0;top:11px;transform:translateX(-50%)}
+.pin.r span{left:11px;top:0;transform:translateY(-50%)}
+.pin.l span{right:11px;top:0;transform:translateY(-50%)}
+.pin .sm{display:none}
+.pin.c::before{display:none}
+.pin.c span{left:0;top:0;transform:translate(-50%,-50%);white-space:pre;text-align:center;line-height:1.4;background:none;border:0;padding:0;font-size:.84rem;color:rgba(255,255,255,.88);text-shadow:0 1px 4px #000}
+.vside{display:flex;flex-direction:column;gap:18px;padding:8px 6px 4px 0}
+.vinfo{min-height:10.5rem}
+.vinfo p{margin:0}
+.vdate{font-size:1.45rem;font-weight:700;line-height:1.15;color:#fff}
+.vinfo .vtime{display:flex;align-items:center;gap:.45rem;font-size:.84rem;color:#a9c0d3;margin-top:7px}
+.vtime::before{content:"";width:17px;height:17px;flex:none;background:center/contain no-repeat}
+.vtime.night::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 12.790A9 9 0 1 1 11.210 3 7 7 0 0 0 21 12.790z' fill='%23ffd34d'/%3E%3C/svg%3E")}
+.vtime.day::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='4.500' fill='%23ffd34d'/%3E%3Cpath d='M12 2v3M12 19v3M2 12h3M19 12h3M4.900 4.900l2.100 2.100M17 17l2.100 2.100M19.100 4.900L17 7M7 17l-2.100 2.100' stroke='%23ffd34d' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")}
+.vinfo .vnum{margin-top:20px}
+.vnum b{display:block;font-size:2.5rem;font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.vnum span{display:block;font-size:.84rem;color:#a9c0d3;margin-top:6px}
+.vinfo .vdelta{display:inline-block;margin-top:11px;font-size:.84rem;font-weight:600;color:var(--ink);background:var(--amber);border-radius:999px;padding:.16rem .7rem}
+.vinfo .vdelta.none{background:rgba(255,255,255,.14);color:#dfeaf3}
+.checks{display:grid;gap:9px;margin-top:auto;font-size:.92rem}
+.check{display:flex;align-items:center;gap:.55rem;cursor:pointer}
+.check input{width:1.1rem;height:1.1rem;margin:0;accent-color:var(--sun)}
+.check i{width:18px;height:5px;border-radius:3px;flex:none}
+.check i.shore{background:var(--shore)}
+.check i.gain{background:var(--amber);height:10px}
+.playbtn{display:flex;align-items:center;justify-content:center;gap:.6rem;font:inherit;font-weight:700;color:var(--ink);background:var(--sun);border:0;border-radius:14px;padding:.72rem 1rem;cursor:pointer;transition:transform .15s,filter .15s}
+.playbtn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.playbtn::before{content:"";width:0;height:0;border-left:11px solid var(--ink);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.playbtn.on::before{width:11px;height:13px;border:0;border-left:4px solid var(--ink);border-right:4px solid var(--ink)}
+.strip{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:8px;margin-top:18px}
+.strip button{font:inherit;color:#a9c0d3;background:none;border:0;padding:0;cursor:pointer;text-align:center;min-width:0}
+.strip canvas{display:block;width:100%;height:auto;border-radius:9px;background:#1b3a57;opacity:.55;transition:opacity .2s}
+.strip button:hover canvas{opacity:.85}
+.strip button[aria-pressed=true] canvas{opacity:1;box-shadow:0 0 0 3px var(--sun)}
+.strip span{display:block;font-size:.7rem;line-height:1.2;margin-top:7px;white-space:nowrap}
+.strip button[aria-pressed=true] span{color:#fff;font-weight:600}
+.readout{margin:14px 4px 2px;font-size:.9rem;line-height:1.5;color:#c4d5e3;max-width:62em}
+.sub{font-size:1.3rem;margin:48px 0 0}
+.guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 36px;margin:22px 0 0;padding:0;list-style:none}
+.guide li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:start;color:var(--ink2);font-size:.96rem;line-height:1.5}
+.guide b{color:var(--ink)}
+.guide i{display:block;width:52px;height:34px;border-radius:9px;margin-top:3px}
+.guide i.wave{background:#fff repeating-linear-gradient(90deg,var(--blue) 0 6px,transparent 6px 11px) center/100% 8px no-repeat}
+.guide i.black{background:#10181d}
+.guide i.grey{background:linear-gradient(90deg,#555,#f4f4f4)}
+.guide i.mark{background:linear-gradient(90deg,var(--shore) 50%,var(--amber) 50%)}
+.guide i.stripes{background:repeating-linear-gradient(90deg,#1c1c1c 0 6px,#5a5a5a 6px 8px)}
+.guide i.night{background:radial-gradient(circle at 72% 40%,#ffd34d 0 5px,transparent 6px),#243b53}
+
+/* winter */
+.bal{display:grid;gap:16px;margin:30px 0 16px;max-width:880px}
+.bal-row{display:grid;grid-template-columns:minmax(0,1fr) 4.4em;gap:6px 14px;align-items:center}
+.bal-row>span{grid-column:1/-1;font-weight:500;color:var(--ink2)}
+.bal-bar{display:flex;height:36px;clip-path:inset(0 0 0 0);transition:clip-path 1.2s cubic-bezier(.2,.7,.2,1) .2s}
+.js .bal:not(.in) .bal-bar{clip-path:inset(0 100% 0 0)}
+.bal-bar i{display:flex;align-items:center;justify-content:center;flex:none;min-width:0;overflow:hidden;font-style:normal;font-size:.8rem;font-weight:600;color:#fff;white-space:nowrap}
+.bal-bar i+i{border-left:2px solid var(--sand)}
+.bal-bar i:first-child,.bal-bar .gap+i{border-radius:10px 0 0 10px}
+.bal-bar i:last-child{border-radius:0 10px 10px 0}
+.bal-bar .dead{background:#8497a5}
+.bal-bar .use{background:var(--blue)}
+.bal-bar .need{background:repeating-linear-gradient(135deg,#5b9cc7 0 8px,#78b0d4 8px 16px)}
+.bal-bar .gap{background:none}
+.bal-bar .draw{background:#e07a1f}
+.bal-bar .draw2{background:#f3b56f;color:var(--ink)}
+.bal-bar .sm{display:none}
+.bal-row b{font-size:1.3rem;font-weight:800;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.bal-key{display:none;flex-wrap:wrap;gap:4px 18px;margin:0;font-size:.84rem;color:var(--ink2)}
+.bal-key i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:.4rem;vertical-align:-1px}
+.bal-key .dead{background:#8497a5}
+.bal-key .use{background:var(--blue)}
+.balnote{font-size:1.14rem;color:var(--ink);max-width:44em;margin:0 0 .5rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;margin-top:34px}
+.two .card h3{margin-bottom:.5rem}
+
+/* chart */
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:30px 0 24px}
+.tile{background:var(--sky);border-radius:var(--r);padding:20px 22px}
+.tile b{display:block;font-size:clamp(1.9rem,3vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.tile span{display:block;color:var(--ink2);line-height:1.45;margin-top:.35rem}
+.figure{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 24px 18px;margin:0}
+.figtitle{font-weight:600;margin:0 0 .3rem}
 .chartbox{overflow-x:auto}
-.note{font-size:.93rem;color:var(--slate)}
-ol.steps{padding-left:1.3rem;max-width:70ch}
-ol.steps li{margin-bottom:.7rem;padding-left:.3rem}
-ul.plain{padding-left:1.1rem;max-width:70ch}
-ul.plain li{margin-bottom:.5rem}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-footer{padding:36px 0 60px;border-top:1px solid var(--line);font-size:.92rem;color:var(--slate)}
-footer p{max-width:78ch}
-@media (max-width:820px){.hero,.two{grid-template-columns:1fr;gap:28px}.hero{padding-top:34px}.controls{grid-template-columns:1fr}.gauge svg{max-width:280px}#chart{min-width:680px}}
+.chartwrap{position:relative}
+#chart{display:block;width:100%;height:auto}
+#chart circle{cursor:pointer;outline:none}
+.tip{position:absolute;z-index:2;pointer-events:none;transform:translate(-50%,calc(-100% - 14px));background:var(--ink);color:#fff;border-radius:12px;padding:.5rem .8rem;font-size:.84rem;line-height:1.45;white-space:nowrap;box-shadow:0 6px 20px rgba(18,49,74,.28)}
+.tip b{display:block;font-size:1.06rem}
+.tip span{display:block;color:#c5d5e2}
+.key{display:flex;flex-wrap:wrap;gap:8px 22px;margin:10px 0 0;padding:0;list-style:none;font-size:.88rem;color:var(--ink2)}
+.key li{display:flex;align-items:center;gap:.5rem}
+.key svg{flex:none}
+.tablebox{margin-top:12px;font-size:.92rem}
+.tablebox summary{cursor:pointer;color:var(--blue);font-weight:600;width:max-content;max-width:100%}
+.tablescroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin-top:10px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:.45rem .7rem .45rem 0;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--ink2);font-size:.88rem}
+.num{text-align:right}
+.note{font-size:.9rem;color:var(--muted);margin:12px 0 0}
+
+/* method */
+.how{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:44px;align-items:start;margin-top:30px}
+.compare{position:relative;border-radius:18px;overflow:hidden;background:#000;line-height:0;--pos:50%;box-shadow:var(--shadow)}
+.compare canvas{display:block;width:100%;height:auto}
+.compare .top-img{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos))}
+.compare .bar{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:#fff;pointer-events:none}
+.compare .bar::after{content:"";position:absolute;top:50%;left:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2312314a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 7l-5 5 5 5M15 7l5 5-5 5'/%3E%3C/svg%3E") center/22px no-repeat;box-shadow:0 2px 10px rgba(0,0,0,.45)}
+.compare input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.compare:focus-within .bar::after{outline:3px solid var(--sun);outline-offset:2px}
+.tag{position:absolute;top:12px;padding:.24rem .65rem;border-radius:9px;background:rgba(8,18,25,.84);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.8rem;font-weight:600;line-height:1.3;pointer-events:none}
+.tag.l{left:12px}
+.tag.r{right:12px}
+.cap{font-size:.92rem;color:var(--muted);margin:14px 0 0;line-height:1.5}
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:14px}
+ol.steps li{counter-increment:s;position:relative;padding-left:48px;color:var(--ink2)}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:.05em;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--water-l);color:var(--blue-d);font-weight:700;font-size:.95rem}
+.tested{display:flex;gap:16px;align-items:flex-start;margin-top:34px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:22px 24px}
+.tested svg{flex:none;width:44px;height:44px}
+.tested h3{margin-bottom:.3rem}
+.tested p{margin:0;color:var(--ink2);max-width:60em}
+
+/* limits and answers */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+ul.plain{margin:1.3rem 0 0;padding:0 0 0 1.2rem;display:grid;gap:10px;color:var(--ink2)}
+.faq{margin-top:1.3rem;display:grid;gap:10px}
+.faq details{background:var(--sky);border-radius:16px;padding:0 20px}
+.faq summary{position:relative;cursor:pointer;font-weight:600;padding:15px 30px 15px 0;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:1.4rem;font-weight:400;color:var(--blue)}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{color:var(--ink2);margin:0 0 15px}
+
+footer{background:var(--ink);color:#c5d5e2;padding:48px 0 60px;font-size:.92rem}
+footer p{max-width:84ch}
+footer a{color:#8fd3f4}
+footer strong{color:#fff}
+
+.brand .by{display:none}
+@media (min-width:641px) and (max-width:940px){.brand .by{display:inline}}
+@media (max-width:1079.98px){
+.scene{width:118%;margin:10px 0 0 -17%}
+.lab-wrap{background:#a9b86a;padding:0 16px 20px;transition:background .9s}
+.hero.off .lab-wrap{background:#5c7056}
+.lab{margin-top:-76px;grid-template-columns:auto minmax(0,1fr)}
+.lab-out{grid-column:1/-1}
+}
+@media (max-width:940px){
+.nav{display:none}
+.prob,.two,.how,.split,.now,.vgrid{grid-template-columns:1fr;gap:28px}
+.tiles{grid-template-columns:1fr}
+.guide{grid-template-columns:repeat(2,minmax(0,1fr))}
+.facts{grid-template-columns:1fr}
+.fact{padding:28px 0;border-left:0;border-top:2px solid #cfe2ee}
+.fact:first-child{padding-top:0;border-top:0}
+.fact:last-child{padding-bottom:0}
+.tankfig{max-width:400px}
+.band{padding:54px 0}
+.band.first{padding-top:36px}
+.vgrid{gap:16px}
+.vside{padding:0 4px;gap:16px}
+.vinfo{min-height:0}
+.checks{margin-top:0}
+.strip{grid-auto-columns:86px;overflow-x:auto;padding:4px 4px 8px;margin-left:-4px;margin-right:-4px}
+}
+@media (max-width:640px){
+html{font-size:17px}
+.wrap{padding:0 16px}
+.hero-text{padding-top:16px}
+.lede{font-size:1.02rem}
+.scene{width:176%;margin-left:-48.4%}
+.stag{font-size:.62rem;padding:.16rem .5rem}
+#tFull,#tSnow,#tLake{display:none}
+#tHome{left:84%!important;transform:translate(-100%,-50%)}
+#tNow{left:38.5%!important}
+.hero.off #tStop{visibility:hidden}
+.brand strong{font-size:.98rem}
+.head{gap:10px}
+.lang button{font-size:.76rem;padding:.22rem .5rem}
+.lab-wrap{padding:0 12px 16px}
+.lab{margin-top:-48px;grid-template-columns:1fr;gap:10px;padding:14px 16px}
+.viewer{border-radius:22px;padding:10px 10px 14px}
+.plate{border-radius:14px}
+.vdate{font-size:1.3rem}
+.vnum b{font-size:2.1rem}
+.pin span{font-size:.64rem;padding:.12rem .4rem}
+.pin.c,.pin .lg{display:none}
+.pin .sm{display:block}
+.chartwrap{min-width:620px}
+.figure{padding:18px 16px 14px}
+.zones p{font-size:.78rem}
+.marks p{font-size:.86rem}
+.guide{grid-template-columns:1fr}
+.give{grid-template-columns:48px minmax(0,1fr) 18px;gap:12px;padding:13px 14px}
+.give .ic{width:48px;height:48px}
+.bal-bar .lg{display:none}
+.bal-bar .sm{display:inline}
+.bal-key{display:flex}
+.bal-bar .draw2{font-size:0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.flowline,.pipe,.flow,.spin,.wv,.cloud,.sat,.pulse,.sig path,.smoke circle{animation:none}.sig path{opacity:.7}.js .rv{opacity:1;transform:none;transition:none}.tw,.pics svg,.bal-bar{transition:none}}
+@media print{.js .rv{opacity:1;transform:none}.headbar{position:static}.js .tankfig:not(.in) .tw{transform:none}.js .bal:not(.in) .bal-bar{clip-path:none}.js .rv:not(.in) .pics svg.on{fill:var(--sun)}.js .rv:not(.in) .pics svg.hot{fill:#ff8a3d}}
 </style>
 </head>
 <body>
-<div class="wrap">
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<noscript><p>This page needs JavaScript to show the radar images and the numbers.</p></noscript>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bulb" viewBox="0 0 26 34"><path d="M13 1a10 10 0 0 0-6 18c1.300 1 2 2.200 2 3.600V24h8v-1.400c0-1.400.7-2.600 2-3.600A10 10 0 0 0 13 1z"/><rect x="9" y="26" width="8" height="2.600" rx="1.300"/><rect x="10.500" y="30" width="5" height="2.600" rx="1.300"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 26 34"><rect x="7" y="1" width="3" height="9" rx="1.500"/><rect x="16" y="1" width="3" height="9" rx="1.500"/><path d="M4 9h18v5a9 9 0 0 1-7 8.800V33h-4V22.800A9 9 0 0 1 4 14z"/></symbol>
+</svg>
 
-<div class="masthead">
-  <span><strong id="projName"></strong>, by team <span id="teamName"></span></span>
-  <span>NASA Space Apps Challenge 2026, challenge “Dancing with the SARs”</span>
-</div>
-
-<div class="hero">
-  <div>
-    <h1>How full is Kyrgyzstan’s battery?</h1>
-    <p class="lede">The Toktogul reservoir feeds the power plants that keep the lights on in winter. We measure its water surface from space with NISAR, the NASA and ISRO radar satellite that sees through clouds and in the dark.</p>
-    <ul class="facts" id="facts"></ul>
+<header class="headbar">
+<div class="wrap head">
+  <a class="brand" href="#main">
+    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#1576b3"/><path d="M16 6c4 5 7 8.400 7 12a7 7 0 0 1-14 0c0-3.600 3-7 7-12z" fill="#fff"/><path d="M12.500 19.500a3.500 3.500 0 0 0 3.500 3.500" fill="none" stroke="#1576b3" stroke-width="1.800" stroke-linecap="round"/></svg>
+    <span><strong id="projName">Toktogul Battery</strong> <span class="by"><span data-i18n="by">by team</span> <span id="teamName">Paparizi</span> · NASA Space Apps 2026</span></span>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#now" data-i18n="nav1">Now</a>
+    <a href="#view" data-i18n="nav2">From space</a>
+    <a href="#winter" data-i18n="nav3">This winter</a>
+    <a href="#how" data-i18n="nav4">How it works</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language / Язык">
+    <button type="button" data-lang="ru" aria-pressed="false">Русский</button>
+    <button type="button" data-lang="en" aria-pressed="true">English</button>
   </div>
-  <figure class="gauge" style="margin:0">
-    <svg id="gauge" viewBox="0 0 340 430" role="img" aria-labelledby="gaugeTitle"><title id="gaugeTitle">Water in the Toktogul reservoir compared with its dead level and full capacity</title></svg>
-    <figcaption id="gaugeCap"></figcaption>
+</div>
+</header>
+
+<main id="main">
+<section class="hero" id="hero" aria-labelledby="h-top">
+  <div class="wrap hero-text">
+    <h1 id="h-top"></h1>
+    <p class="lede" data-i18n="lede">The Toktogul reservoir is the country’s main store of electricity for the winter. We show it from space and explain it in plain words.</p>
+  </div>
+  <div class="scene" id="scene">
+    <svg viewBox="0 0 1200 440" role="img" aria-labelledby="sceneTitle">
+      <title id="sceneTitle"></title>
+      <defs>
+        <linearGradient id="gWater" gradientUnits="userSpaceOnUse" x1="0" y1="180" x2="0" y2="300"><stop offset="0" stop-color="#5cc3ea"/><stop offset="1" stop-color="#1c7fb5"/></linearGradient>
+        <linearGradient id="gGround" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c3cc86"/><stop offset="1" stop-color="#a9b86a"/></linearGradient>
+        <path id="pFar" d="M-1000 440V200L-900 150-830 170-760 128-690 160-600 120-520 158-440 132-360 165-280 138-200 168-130 140-60 166 0 152 60 134 120 152 190 126 250 146 330 122 400 144 470 128 540 148 610 130 680 150 740 132 800 146 860 150 1310 150 1380 100 1460 140 1540 108 1620 150 1700 120 1790 156 1880 126 1980 160 2080 134 2200 170V440Z"/>
+        <path id="pMassif" d="M850 200L905 128 940 142 1010 28 1052 78 1078 90 1130 56 1182 122 1218 100 1300 200Z"/>
+        <clipPath id="basin"><path d="M250 180C292 200 330 270 380 300H612V180Z"/></clipPath>
+        <clipPath id="landClip"><use href="#pFar"/><use href="#pMassif"/></clipPath>
+        <mask id="mMoon"><rect x="1060" y="10" width="100" height="100" fill="#fff"/><circle cx="1120" cy="48" r="21" fill="#000"/></mask>
+      </defs>
+      <!-- sky -->
+      <g class="sun"><circle cx="1108" cy="62" r="78" fill="#fff6c9" opacity=".5"/><circle cx="1108" cy="62" r="55" fill="#ffeb9a" opacity=".65"/><circle cx="1108" cy="62" r="34" fill="#ffd24a"/></g>
+      <circle class="moon" cx="1108" cy="56" r="24" fill="#f6f2d8" mask="url(#mMoon)"/>
+      <g class="cloud" fill="#fff"><ellipse cx="770" cy="118" rx="44" ry="13"/><ellipse cx="792" cy="107" rx="26" ry="15"/><ellipse cx="752" cy="110" rx="20" ry="11"/></g>
+      <g class="cloud c2" fill="#fff"><ellipse cx="1236" cy="150" rx="38" ry="11"/><ellipse cx="1254" cy="141" rx="22" ry="12"/><ellipse cx="40" cy="108" rx="40" ry="12"/><ellipse cx="62" cy="98" rx="24" ry="13"/></g>
+      <!-- far mountains -->
+      <use href="#pFar" fill="#cfe0ee"/>
+      <g fill="#fff"><path d="M190 126L174 131.900 179 138 185 133 190 141 196 134 202 138 206 131.300Z"/><path d="M330 122L310 128 316 135 323 130 330 139 337 131 344 136 350 128.300Z"/><path d="M470 128L454 131.700 459 138 465 134 470 141 476 135 482 139 486 132.600Z"/><path d="M610 130L597 133.300 602 139 607 135 612 141 618 136 623 133.700Z"/><path d="M60 134L47 137.900 52 143 57 139 62 145 68 140 73 137.900Z"/><path d="M740 132L728 135.600 733 140 738 137 743 142 748 138 752 134.800Z"/><path d="M1380 100L1362 112.900 1368 119 1374 113 1380 122 1387 113 1393 118 1398 109Z"/><path d="M1540 108L1524 114.400 1530 123 1536 117 1542 126 1548 118 1552 123 1556 116.400Z"/><path d="M1700 120L1686 125.300 1691 132 1696 128 1702 135 1708 129 1714 125.600Z"/><path d="M-600 120L-616 127.100-610 135-604 129-598 138-592 130-584 127.600Z"/><path d="M-760 128L-774 136.400-769 143-763 138-757 146-751 139-746 134.400Z"/><path d="M-440 132L-452 135.900-447 142-441 138-435 144-428 137Z"/></g>
+      <!-- the big snowy mountain -->
+      <use href="#pMassif" fill="#b9cfe2"/>
+      <g fill="#a5c0d8"><path d="M1010 28L1052 78 1078 90 1100 200H1004L1022 112Z"/><path d="M1130 56L1182 122 1218 100 1300 200H1156L1148 124Z"/><path d="M905 128L940 142 952 200H902Z"/></g>
+      <g fill="#fff"><path d="M1010 28L984 70.300 992 84 1001 72 1010 92 1019 74 1028 86 1036 70 1040 63.700Z"/><path d="M1130 56L1106 71.700 1113 82 1120 75 1128 88 1136 76 1143 86 1150 81.400Z"/><path d="M905 128L897 138.500 902 143 907 137 912 141 915 132Z"/><path d="M1218 100L1206 107.300 1211 115 1217 109 1223 118 1230 114.600Z"/><path d="M998 100l-12 30 9-7 5 14 6-20z" opacity=".8"/><path d="M1044 104l-6 22 7-5 5 12 3-18z" opacity=".8"/></g>
+      <g fill="#dbe7f1"><path d="M1010 28L1040 63.700 1036 70 1028 86 1019 74 1015 58Z"/><path d="M1130 56L1150 81.400 1143 86 1136 76 1134 66Z"/></g>
+      <!-- nearer ridge -->
+      <path d="M-1000 440V210L-880 172-780 196-660 164-560 190-450 160-350 188-250 164-150 186-60 162 20 180 90 158 160 176 240 152 310 174 390 150 460 172 540 152 600 170 680 156 760 174 840 152 900 176 980 154 1060 180 1140 158 1220 182 1300 160 1400 186 1500 158 1600 188 1700 162 1820 190 1940 164 2060 192 2200 170V440Z" fill="#a7c2d8"/>
+      <g fill="#96b5cd"><path d="M240 152L310 174H262Z"/><path d="M390 150L460 172H412Z"/><path d="M540 152L600 170H560Z"/><path d="M90 158L160 176H112Z"/><path d="M680 156L760 174H702Z"/><path d="M840 152L900 176H862Z"/><path d="M980 154L1060 180H1004Z"/><path d="M1140 158L1220 182H1164Z"/><path d="M1300 160L1400 186H1326Z"/><path d="M1500 158L1600 188H1528Z"/><path d="M-60 162L20 180H-36Z"/><path d="M-250 164L-150 186H-226Z"/><path d="M-450 160L-350 188H-424Z"/><path d="M-660 164L-560 190H-634Z"/></g>
+      <!-- hills behind the village -->
+      <path d="M640 300L700 240 780 226 860 240 940 220 1040 236 1130 214 1230 232 1330 216 1450 238 1600 220 1800 240 2000 222 2200 242V300Z" fill="#d9c897"/>
+      <path d="M690 300L760 276 880 270 1000 276 1100 266 1210 274 1400 268 1700 278 2200 270V300Z" fill="#c7cd88"/>
+      <!-- the left bank and the ground under the lake -->
+      <path d="M-1000 440V196L-800 190-600 198-400 188-200 196 0 190 120 194 200 186 250 180C292 200 330 270 380 300H730V440Z" fill="#dccba2"/>
+      <path d="M-1000 440V238Q-700 224-400 240T0 234 200 242Q300 262 380 300H730V440Z" fill="#d0be92"/>
+      <path d="M250 180C292 200 330 270 380 300H612" fill="none" stroke="#c9b688" stroke-width="4"/>
+      <path d="M112 168C136 172 146 184 174 186S226 181 250 183" fill="none" stroke="#73c7ee" stroke-width="5.500" stroke-linecap="round"/>
+      <path d="M40 190v-8M64 190v-6M150 193v-8M-80 192v-8M-300 192v-8M-340 192v-7" stroke="#8a6a3a" stroke-width="2.400"/>
+      <g fill="#f0b93a"><ellipse cx="40" cy="166" rx="6" ry="18"/><ellipse cx="150" cy="170" rx="6" ry="17"/><ellipse cx="-80" cy="168" rx="6" ry="18"/><ellipse cx="-340" cy="170" rx="6" ry="17"/></g>
+      <g fill="#8fb56c"><ellipse cx="64" cy="172" rx="6" ry="14"/><ellipse cx="-300" cy="169" rx="6" ry="17"/></g>
+      <!-- a yurt and a small flock on the pasture -->
+      <path d="M22 230V218Q22 206 43 202 64 206 64 218V230Z" fill="#f7f2e6"/><path d="M22 218h42v4H22z" fill="#b5482f"/><ellipse cx="43" cy="203" rx="5" ry="2" fill="#b5482f"/><rect x="38" y="221" width="10" height="9" rx="1" fill="#8a3a26"/>
+      <path d="M102 222v5M110 222v5M134 230v5M142 230v5M166 219v5M174 219v5M196 232v5M204 232v5" stroke="#5a5148" stroke-width="1.600" stroke-linecap="round"/>
+      <g fill="#fbf8f0"><ellipse cx="106" cy="218" rx="8" ry="5.500"/><ellipse cx="138" cy="226" rx="8" ry="5.500"/><ellipse cx="170" cy="215" rx="8" ry="5.500"/><ellipse cx="200" cy="228" rx="8" ry="5.500"/></g>
+      <g fill="#4a433c"><circle cx="114.500" cy="216" r="2.800"/><circle cx="129.500" cy="224" r="2.800"/><circle cx="178.500" cy="213" r="2.800"/><circle cx="208.500" cy="226" r="2.800"/></g>
+      <!-- the reservoir -->
+      <g clip-path="url(#basin)">
+        <rect x="240" y="180" width="380" height="124" fill="#ead9b0"/>
+        <path d="M240 210H620M240 240H620M240 270H620" stroke="#dcc99b" stroke-width="2"/>
+        <path d="M250 182C292 202 330 272 380 302" fill="none" stroke="#73c7ee" stroke-width="5" stroke-linecap="round"/>
+        <rect id="scWater" x="240" y="230" width="380" height="74" fill="url(#gWater)"/>
+        <g id="scWave" transform="translate(0 230)">
+          <rect x="240" y="0" width="380" height="5" fill="#a5e3f8"/>
+          <path d="M300 16h28M430 24h36M530 14h24M372 38h20" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+          <path class="wv" d="M200 0q10-4 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0 20 0" fill="none" stroke="#e6f7fe" stroke-width="2.400"/>
+        </g>
+        <path id="scStopLine" d="M240 266.200H620" stroke="#d9482b" stroke-width="2.600" stroke-dasharray="7 6"/>
+      </g>
+      <path d="M252 180H612" stroke="#12314a" stroke-width="1.500" stroke-dasharray="2 6" opacity=".5"/>
+      <g id="scBoat" transform="translate(566 230)"><path d="M-17-2h34l-7 8h-20Z" fill="#fff"/><path d="M0-5V-27L15-7Z" fill="#ffc531"/><path d="M0-28V-2" stroke="#12314a" stroke-width="1.600"/></g>
+      <!-- the river below the dam -->
+      <path d="M724 300H2200V340H724Z" fill="#dccda6"/>
+      <g class="river"><path d="M724 300H2200V324Q1400 318 724 322Z" fill="#73c7ee"/><path class="flow" d="M740 308H2200M760 316H2200"/></g>
+      <!-- dam and power plant -->
+      <path d="M612 172H650L724 300H612Z" fill="#efebe1"/>
+      <path d="M638 172H650L724 300H700Z" fill="#dad4c5"/>
+      <rect x="604" y="165" width="52" height="8" rx="3" fill="#b7b0a0"/>
+      <path d="M618 165v-9M640 165v-9" stroke="#7b8791" stroke-width="1.600"/>
+      <circle class="win" cx="618" cy="155" r="2.400"/><circle class="win" cx="640" cy="155" r="2.400"/>
+      <path d="M614 267L700 292H742" fill="none" stroke="#b9c8d3" stroke-width="6.500" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="pipe" d="M614 267L700 292H742"/>
+      <rect id="scIntake" x="608" y="261" width="8" height="12" rx="1.500" fill="#27465c"/>
+      <rect x="716" y="264" width="86" height="36" fill="#f8f1e2"/>
+      <rect x="716" y="294" width="86" height="6" fill="#e6dcc6"/>
+      <rect x="710" y="256" width="98" height="9" rx="2" fill="#456b87"/>
+      <circle cx="746" cy="281" r="12" fill="#27465c"/>
+      <g class="spin"><path d="M746 271v20M736 281h20M738.900 273.900l14.200 14.200M753.100 273.900l-14.200 14.200" stroke="#fff" stroke-width="2.200" stroke-linecap="round"/></g>
+      <circle cx="746" cy="281" r="2.600" fill="#ffc531"/>
+      <rect class="win" x="768" y="271" width="10" height="11" rx="1.500"/><rect class="win" x="784" y="271" width="10" height="11" rx="1.500"/>
+      <rect x="806" y="286" width="14" height="14" rx="2" fill="#7d93a3"/><path d="M809.500 286v-6M813 286v-6M816.500 286v-6" stroke="#5d7284" stroke-width="1.500"/>
+      <!-- power lines -->
+      <g stroke="#5d7284" stroke-width="2.200" fill="none" stroke-linecap="round"><path d="M850 300V224M840 300 850 244 860 300M836 232h28M840 246h20"/><path d="M926 300V228M916 300 926 248 936 300M912 236h28M916 250h20"/><path d="M1300 300V222M1290 300 1300 242 1310 300M1286 230h28M1290 244h20"/><path d="M1640 300V224M1630 300 1640 244 1650 300M1626 232h28M1630 246h20"/></g>
+      <path d="M808 258Q822 252 836 232M864 232Q888 246 912 236M940 236Q958 248 974 252M940 236Q1113 274 1286 230M1314 230Q1470 272 1626 232" stroke="#5d7284" stroke-width="1.600" fill="none"/>
+      <path class="flowline" d="M808 258Q822 252 836 232M864 232Q888 246 912 236M940 236Q958 248 974 252M940 236Q1113 274 1286 230"/>
+      <!-- the village -->
+      <path d="M880 300v-10M1030 300v-14M1124 300v-14M1280 300v-14M1402 300v-14M1512 300v-14M1680 300v-14M1716 300v-12M1900 300v-14M2050 300v-14" stroke="#8a6a3a" stroke-width="2.600"/>
+      <circle cx="880" cy="281" r="11" fill="#86b266"/>
+      <g fill="#f0b93a"><ellipse cx="1030" cy="260" rx="7" ry="28"/><ellipse cx="1280" cy="258" rx="7" ry="30"/><ellipse cx="1512" cy="258" rx="7" ry="30"/><ellipse cx="1716" cy="266" rx="6" ry="22"/><ellipse cx="2050" cy="260" rx="7" ry="28"/></g>
+      <g fill="#e3a22b"><ellipse cx="1124" cy="264" rx="6" ry="24"/><ellipse cx="1402" cy="262" rx="6" ry="26"/><ellipse cx="1680" cy="260" rx="7" ry="28"/><ellipse cx="1900" cy="262" rx="6" ry="26"/></g>
+      <rect x="1000" y="242" width="8" height="18" fill="#a8482c"/>
+      <rect x="956" y="268" width="60" height="32" fill="#fff4dc"/><path d="M948 270 986 244 1024 270Z" fill="#c9603f"/><rect x="992" y="280" width="12" height="20" rx="1.500" fill="#8a5a3c"/>
+      <rect x="1040" y="246" width="70" height="54" fill="#f6f8fb"/><path d="M1032 248 1075 220 1118 248Z" fill="#3f7fae"/><rect x="1069" y="279" width="12" height="21" rx="1.500" fill="#3f7fae"/>
+      <path d="M1132 300V284Q1132 266 1161 261 1190 266 1190 284V300Z" fill="#f7f2e6"/><path d="M1132 284h58v5h-58z" fill="#b5482f"/><path d="M1136 286.500h50" stroke="#f3d27a" stroke-width="1.200" stroke-dasharray="3 3"/><ellipse cx="1161" cy="262" rx="7" ry="2.500" fill="#b5482f"/><rect x="1154" y="289" width="14" height="11" rx="1" fill="#8a3a26"/>
+      <rect x="1205" y="270" width="57" height="30" fill="#fde9c9"/><path d="M1197 272 1233 247 1269 272Z" fill="#5e9c69"/>
+      <rect x="1335" y="270" width="50" height="30" fill="#fff4dc"/><path d="M1327 272 1360 248 1393 272Z" fill="#c9603f"/>
+      <rect x="1425" y="250" width="60" height="50" fill="#f6f8fb"/><path d="M1417 252 1455 226 1493 252Z" fill="#456b87"/>
+      <rect x="1560" y="272" width="46" height="28" fill="#fde9c9"/><path d="M1553 274 1583 252 1613 274Z" fill="#5e9c69"/>
+      <path d="M1196 300V270h8" stroke="#5d7284" stroke-width="2" fill="none"/>
+      <g><circle class="glow" cx="971" cy="283.500" r="12"/><circle class="glow" cx="1055" cy="261.500" r="11"/><circle class="glow" cx="1075" cy="261.500" r="11"/><circle class="glow" cx="1095" cy="261.500" r="11"/><circle class="glow" cx="1055" cy="284.500" r="11"/><circle class="glow" cx="1095" cy="284.500" r="11"/><circle class="glow" cx="1220" cy="284.500" r="11"/><circle class="glow" cx="1247" cy="284.500" r="11"/><circle class="glow" cx="1205" cy="271" r="9"/></g>
+      <g><rect class="win" x="965" y="277" width="12" height="13" rx="1.500"/><rect class="win" x="1049" y="255" width="12" height="13" rx="1.500"/><rect class="win" x="1069" y="255" width="12" height="13" rx="1.500"/><rect class="win" x="1089" y="255" width="12" height="13" rx="1.500"/><rect class="win" x="1049" y="278" width="12" height="13" rx="1.500"/><rect class="win" x="1089" y="278" width="12" height="13" rx="1.500"/><rect class="win" x="1214" y="278" width="12" height="13" rx="1.500"/><rect class="win" x="1241" y="278" width="12" height="13" rx="1.500"/><circle class="win" cx="1205" cy="271" r="3"/><rect class="win" x="1344" y="278" width="12" height="13" rx="1.500"/><rect class="win" x="1366" y="278" width="12" height="13" rx="1.500"/><rect class="win" x="1433" y="259" width="12" height="13" rx="1.500"/><rect class="win" x="1463" y="259" width="12" height="13" rx="1.500"/><rect class="win" x="1433" y="280" width="12" height="13" rx="1.500"/><rect class="win" x="1463" y="280" width="12" height="13" rx="1.500"/><rect class="win" x="1569" y="279" width="11" height="12" rx="1.500"/><rect class="win" x="1588" y="279" width="11" height="12" rx="1.500"/></g>
+      <g class="smoke" fill="#fff"><circle cx="1004" cy="238" r="4"/><circle cx="1004" cy="238" r="4"/><circle cx="1004" cy="238" r="4"/></g>
+      <!-- foreground -->
+      <path d="M-1000 440V334Q-400 324 200 332T1200 328 2200 334V440Z" fill="url(#gGround)"/>
+      <path d="M300 348l-3-7M303 348v-9M306 348l3-7M520 352l-3-7M523 352v-9M526 352l3-7M860 346l-3-7M863 346v-9M866 346l3-7M1090 350l-3-7M1093 350v-9M1096 350l3-7M150 354l-3-7M153 354v-9M156 354l3-7M1300 348l-3-7M1303 348v-9M1306 348l3-7M-200 352l-3-7M-197 352v-9M-194 352l3-7M1700 352l-3-7M1703 352v-9M1706 352l3-7M40 346l-3-7M43 346v-9M46 346l3-7M1170 354l-3-7M1173 354v-9M1176 354l3-7" stroke="#8fa252" stroke-width="1.800" stroke-linecap="round" fill="none"/>
+      <rect class="dusk" x="-1200" y="-200" width="3600" height="800" fill="#0e2741" clip-path="url(#landClip)"/>
+      <!-- the radar satellite -->
+      <g class="sat">
+        <g transform="translate(900 44) rotate(-14)">
+          <rect x="-40" y="-6" width="26" height="12" rx="1.500" fill="#2e6da4"/><path d="M-31.500-6v12M-23-6v12M-40 0h26" stroke="#9cc4e4" stroke-width="1"/>
+          <rect x="14" y="-6" width="26" height="12" rx="1.500" fill="#2e6da4"/><path d="M22.500-6v12M31-6v12M14 0h26" stroke="#9cc4e4" stroke-width="1"/>
+          <rect x="-14" y="-2" width="28" height="4" fill="#5d7284"/>
+          <rect x="-10" y="-9" width="20" height="18" rx="3" fill="#f0b93a"/>
+          <path d="M0 9L-10 30" stroke="#5d7284" stroke-width="2"/>
+          <ellipse cx="-14" cy="36" rx="17" ry="7" fill="#fff" stroke="#8ea3b5" stroke-width="1.500"/>
+          <path d="M-31 36h34M-14 29v14" stroke="#c5d3de" stroke-width="1"/>
+        </g>
+        <g class="sig"><path d="M879.200 81.300A16 16 0 0 0 883.900 95.600"/><path d="M869.400 79.600A26 26 0 0 0 877 102.800"/><path d="M859.500 78A36 36 0 0 0 870.100 110"/></g>
+      </g>
+    </svg>
+    <div class="tags" aria-hidden="true">
+      <span class="stag" id="tSat" style="left:75%;top:3.4%"></span>
+      <span class="stag" id="tSnow" style="left:90.8%;top:30%"></span>
+      <span class="stag" id="tDam" style="left:56%;top:31.800%"></span>
+      <span class="stag" id="tHome" style="left:82.200%;top:52.300%"></span>
+      <span class="stag r" id="tFull" style="left:50.500%;top:40.900%"></span>
+      <span class="stag r stop" id="tStop" style="left:50.500%;top:60.500%"></span>
+      <span class="stag plain" id="tLake" style="left:39.200%;top:65.200%"></span>
+      <span class="stag live" id="tNow" style="left:35%;top:52.300%"></span>
+    </div>
+  </div>
+  <div class="lab-wrap">
+    <div class="lab">
+      <div class="meter" id="meter">
+        <svg viewBox="0 0 84 40" aria-hidden="true"><rect x="2" y="2" width="72" height="36" rx="9" fill="#fff" stroke="currentColor" stroke-width="3"/><rect x="76.500" y="13" width="5.500" height="14" rx="2.500" fill="currentColor"/><rect id="mFill" x="7" y="7" width="26" height="26" rx="5" fill="#1576b3"/></svg>
+        <div><b id="mPct"></b><span id="mCap"></span></div>
+      </div>
+      <div>
+        <div class="lab-top"><b data-i18n="labT">Move the water level</b><button type="button" class="linkbtn" id="labReset" data-i18n="labReset">Back to today</button></div>
+        <div class="slide"><input class="level" type="range" id="level" min="2" max="19.5" step="0.05" value="11.345" aria-label="Water level"><i class="pulse" id="pulse"></i></div>
+        <div class="lab-scale" id="labScale" aria-hidden="true"></div>
+      </div>
+      <p class="lab-out" id="labOut" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+<p class="wrap capstrip" id="capStrip"></p>
+
+<section class="band first" id="problem" aria-labelledby="h-problem">
+<div class="wrap prob">
+  <div class="rv">
+    <p class="klabel" data-i18n="p1t">The problem</p>
+    <h2 id="h-problem" data-i18n="p1h">In winter, the light in your home depends on the water in one reservoir</h2>
+    <p class="big" data-i18n="p1">But an ordinary person has no easy way to know how much water is there: official figures appear rarely and are hard to compare with anything. Is it a lot or a little? Will it last the winter?</p>
+  </div>
+  <div class="rv">
+    <p class="klabel ok" data-i18n="p3t">What this site gives you</p>
+    <div class="gives">
+      <a class="give" href="#now">
+        <svg class="ic" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#fff"/><rect x="10" y="18.500" width="33" height="19" rx="5.500" fill="#fff" stroke="#12314a" stroke-width="2.600"/><rect x="45" y="24" width="3.600" height="8" rx="1.600" fill="#12314a"/><rect x="14" y="22.500" width="12" height="11" rx="2.500" fill="#1576b3"/></svg>
+        <span class="gt"><b data-i18n="w1t">One clear answer</b><span data-i18n="w1">How much water there is now, and how much of it can be turned into electricity.</span></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12.500 6l6 6-6 6" fill="none" stroke="#1576b3" stroke-width="2.400" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="give" href="#view">
+        <svg class="ic" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#fff"/><g transform="rotate(-20 28 26)"><rect x="8" y="21" width="12" height="9" rx="1.500" fill="#2e6da4"/><rect x="36" y="21" width="12" height="9" rx="1.500" fill="#2e6da4"/><rect x="19" y="24" width="18" height="3" fill="#5d7284"/><rect x="22" y="18.500" width="12" height="14" rx="3" fill="#f0b93a"/></g><path d="M20.500 38.500a8 8 0 0 0 6 6M16.500 40.500a12.500 12.500 0 0 0 9 9" fill="none" stroke="#1576b3" stroke-width="2.400" stroke-linecap="round"/></svg>
+        <span class="gt"><b data-i18n="w2t">The view from space</b><span data-i18n="w2">A NASA and ISRO radar satellite passes over the reservoir every 12 days and sees water even at night and through clouds.</span></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12.500 6l6 6-6 6" fill="none" stroke="#1576b3" stroke-width="2.400" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="give" href="#winter">
+        <svg class="ic" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#fff"/><rect x="16" y="26" width="24" height="17" fill="#fff4dc"/><path d="M12 28 28 13.500 44 28Z" fill="#c9603f"/><rect x="24" y="31" width="8" height="8" rx="1.500" fill="#ffc531"/></svg>
+        <span class="gt"><b data-i18n="w3t">What it means for you</b><span data-i18n="w3">What to expect this winter, and why people are asked to save electricity.</span></span>
+        <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12.500 6l6 6-6 6" fill="none" stroke="#1576b3" stroke-width="2.400" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="band tint" id="why" aria-labelledby="h-why">
+<div class="wrap">
+  <h2 id="h-why" class="rv" data-i18n="hWhy">Why one reservoir matters so much</h2>
+  <div class="facts">
+    <div class="fact rv">
+      <div class="pics" id="bulbs" aria-hidden="true"></div>
+      <p class="bignum" id="c1n"></p>
+      <h3 data-i18n="c1t">of the light is made by water</h3>
+      <p id="c1p"></p>
+      <p class="src" data-i18n="src1">Source: <a data-link="eco2" href="https://economist.kg/enierghietika/2026/10/19/vyrabotka-980-mln-2026/">Economist.kg, 19 October 2026</a></p>
+    </div>
+    <div class="fact rv">
+      <svg class="season" viewBox="0 0 300 96" aria-hidden="true"><path d="M6 78C60 78 78 20 132 20s86 54 162 60V92H6Z" fill="#d8eefb"/><path d="M6 78C60 78 78 20 132 20s86 54 162 60" fill="none" stroke="#1576b3" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="30" r="10" fill="#ffc531"/><path d="M60 12v5M60 43v5M42 30h5M73 30h5M47.300 17.300l3.500 3.500M69.200 39.200l3.500 3.500M72.700 17.300l-3.500 3.500M50.800 39.200l-3.500 3.500" stroke="#ffc531" stroke-width="2.400" stroke-linecap="round"/><path d="M248 22v22M237 33h22M240.200 25.200l15.600 15.600M255.800 25.200l-15.600 15.600" stroke="#7fb4d6" stroke-width="2.600" stroke-linecap="round"/></svg>
+      <div class="season-l"><span data-i18n="sL1">summer: it fills up</span><span data-i18n="sL2">winter: it empties</span></div>
+      <h3 style="margin-top:14px" data-i18n="c2t">Summer fills it, winter empties it</h3>
+      <p data-i18n="c2p">Snow and glaciers melt in summer and the reservoir rises. In the cold months the rivers run low, heating pushes demand up, and the power plants live on what was saved.</p>
+    </div>
+    <div class="fact rv">
+      <div class="pics" id="plugs" aria-hidden="true"></div>
+      <p class="bignum" id="c4n"></p>
+      <h3 data-i18n="c4t">kilowatt-hours is bought abroad</h3>
+      <p id="c4p"></p>
+      <p class="src" data-i18n="src4">Source: <a data-link="vesti" href="https://vesti.kg/zxc/item/152439-minenergo-ne-planiruet-vvodit-ogranicheniya-na-elektroenergiyu-etoj-zimoj.html">Vesti.kg, 11 September 2026</a></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="band" id="now" aria-labelledby="nowH">
+<div class="wrap now">
+  <figure class="tankfig rv">
+    <svg id="tank" viewBox="0 0 420 420" role="img"></svg>
+    <div class="zones" id="tankZones" aria-hidden="true"></div>
+    <div class="marks" id="tankMarks" aria-hidden="true"></div>
+  </figure>
+  <div class="now-text rv">
+    <p class="date" id="nowDate"></p>
+    <h2 id="nowH"></h2>
+    <p id="nowP"></p>
+    <p id="c3p"></p>
+    <p class="src" data-i18n="src3">Sources: Ministry of Energy as reported by <a data-link="eco2" href="https://economist.kg/enierghietika/2026/10/19/vyrabotka-980-mln-2026/">Economist.kg, 19 October 2026</a>; <a data-link="kg24" href="https://24.kg/obschestvo/363300_skolko_vodyi_byilo_vtoktogulskom_vodohranilische_na1aprelya_vraznyie_godyi/">24.kg, 24 February 2026</a></p>
+  </div>
+</div>
+</section>
+
+<section class="band tint" id="view" aria-labelledby="h-view">
+<div class="wrap">
+  <h2 id="h-view" class="rv" data-i18n="hView">Now look at the real thing, from space</h2>
+  <p class="intro rv" id="viewP"></p>
+  <div class="viewer rv">
+    <div class="vgrid">
+      <div class="plate">
+        <canvas id="radar" width="948" height="604" role="img" aria-label="Radar image of the Toktogul reservoir"></canvas>
+        <div class="pins" id="pins"></div>
+      </div>
+      <div class="vside">
+        <div class="vinfo" id="vinfo" aria-live="polite"></div>
+        <div class="checks">
+          <label class="check"><input type="checkbox" id="optShore" checked><i class="shore"></i><span data-i18n="optShore">Shoreline</span></label>
+          <label class="check"><input type="checkbox" id="optGain" checked><i class="gain"></i><span data-i18n="optGain">New water since the first date</span></label>
+          <label class="check"><input type="checkbox" id="optNames" checked><span data-i18n="optNames">Place names</span></label>
+        </div>
+        <button class="playbtn" id="play" type="button">Play</button>
+      </div>
+    </div>
+    <div class="strip" id="strip" role="group" aria-label="Image date"></div>
+    <p class="readout" id="readout" hidden></p>
+  </div>
+
+  <h3 class="sub rv" data-i18n="guideT">How to read this picture</h3>
+  <ul class="guide">
+    <li class="rv"><i class="wave"></i><span data-i18n="g1"><b>It is not a photo.</b> The satellite sends radio waves to the ground and records their echo.</span></li>
+    <li class="rv"><i class="black"></i><span data-i18n="g2"><b>Black is water.</b> A smooth surface bounces the signal away like a mirror, so almost nothing comes back.</span></li>
+    <li class="rv"><i class="grey"></i><span data-i18n="g3"><b>Grey and white is land.</b> Rough ground, mountains and buildings send the signal back.</span></li>
+    <li class="rv"><i class="mark"></i><span data-i18n="g4"><b>The blue line</b> is the shoreline our program found. <b>Orange</b> marks water that was not there on the first date.</span></li>
+    <li class="rv"><i class="stripes"></i><span data-i18n="g5"><b>Pale vertical stripes</b> on the water come from the radar itself. They are not waves.</span></li>
+    <li class="rv"><i class="night"></i><span id="wr2p"></span></li>
+  </ul>
+</div>
+</section>
+
+<section class="band warm" id="winter" aria-labelledby="h-winter">
+<div class="wrap">
+  <h2 id="h-winter" class="rv" data-i18n="hWinter">What this means for the coming winter</h2>
+  <p class="intro rv" id="winterP"></p>
+  <div class="bal rv" id="goal" role="img"></div>
+  <p class="balnote rv" id="winterNote"></p>
+  <p class="src rv" data-i18n="winSrc">Sources: Ministry of Energy as reported by <a data-link="eco1" href="https://economist.kg/enierghietika/2026/07/08/toktogul-voda-11-5-mlrd/">Economist.kg on 8 July</a> and <a data-link="eco2" href="https://economist.kg/enierghietika/2026/10/19/vyrabotka-980-mln-2026/">19 October 2026</a>; winter water use: <a data-link="bne" href="https://www.intellinews.com/pannier-dire-power-deficit-pits-kyrgyz-president-against-city-mayors-and-kettle-against-washing-machine-412004/">bne IntelliNews</a>.</p>
+  <div class="two">
+    <div class="card rv">
+      <h3 data-i18n="saveT">Why saving electricity at home helps</h3>
+      <p data-i18n="saveP">Every kilowatt-hour not used is water that stays behind the dam until spring. As the president told citizens in November 2025, every light bulb left on costs Toktogul hundreds of litres of water.</p>
+      <p class="src" data-i18n="saveSrc">Source: <a data-link="pres" href="https://24.kg/english/350266_President_of_Kyrgyzstan_explains_causes_of_electricity_shortages/">24.kg, 10 November 2025</a></p>
+    </div>
+    <div class="card rv">
+      <h3 data-i18n="limT">Will there be limits on electricity?</h3>
+      <p data-i18n="limP">In an interview published on 11 September 2026, the Minister of Energy said the ministry does not plan restrictions on electricity use this winter, including a 5 kW limit for households. How the winter goes depends on the weather, on imports and on how much electricity all of us use.</p>
+      <p class="src" data-i18n="limSrc">Source: <a data-link="vesti" href="https://vesti.kg/zxc/item/152439-minenergo-ne-planiruet-vvodit-ogranicheniya-na-elektroenergiyu-etoj-zimoj.html">Vesti.kg, 11 September 2026</a></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="band" id="change" aria-labelledby="h-change">
+<div class="wrap">
+  <h2 id="h-change" class="rv" data-i18n="hChange">The reservoir grew fastest at the end of June</h2>
+  <p class="intro rv" id="chartLede"></p>
+  <div class="tiles rv" id="chartTiles"></div>
+  <figure class="figure rv">
+    <p class="figtitle" data-i18n="chartTitle">Water surface of the Toktogul reservoir, km²</p>
+    <div class="chartbox" tabindex="0" role="group" aria-labelledby="h-change">
+      <div class="chartwrap"><svg id="chart" viewBox="0 0 800 340" role="img"></svg><div class="tip" id="tip" hidden></div></div>
+    </div>
+    <ul class="key">
+      <li><svg width="22" height="12" aria-hidden="true"><path d="M0 6h22" stroke="#1479a6" stroke-width="2"/><circle cx="11" cy="6" r="4.500" fill="#1479a6" stroke="#fff" stroke-width="2"/></svg><span data-i18n="key1">Radar image</span></li>
+      <li><svg width="14" height="12" aria-hidden="true"><circle cx="7" cy="6" r="4.400" fill="#fff" stroke="#1479a6" stroke-width="2.500"/></svg><span data-i18n="key2">Wet day, used to draw the shoreline</span></li>
+      <li><svg width="22" height="12" aria-hidden="true"><rect width="22" height="12" rx="2" fill="#1479a6" opacity=".16"/></svg><span data-i18n="key3">Range if the test is stricter or looser</span></li>
+      <li><svg width="12" height="14" aria-hidden="true"><path d="M6 0v14" stroke="#3f5d75" stroke-width="1" stroke-dasharray="3 3"/></svg><span data-i18n="key4">Date of an official volume figure</span></li>
+      <li><svg width="12" height="14" aria-hidden="true"><path d="M6 0v14" stroke="#c98500" stroke-width="2"/></svg><span data-i18n="key5">Date shown in the pictures above</span></li>
+    </ul>
+    <details class="tablebox">
+      <summary data-i18n="tableSum">Show the numbers as a table</summary>
+      <div class="tablescroll"><table id="dataTable"></table></div>
+    </details>
+    <p class="note" data-i18n="chartNote">Click a point to see that image. The vertical axis starts near 200 km², not at zero, so that the change is visible.</p>
   </figure>
 </div>
-
-<section aria-labelledby="h-view">
-  <h2 id="h-view">Watch the shoreline move</h2>
-  <p>Eleven radar images from the same orbit, 20 June to 30 October 2026. Water is the dark, smooth area. Drag the slider, or press play.</p>
-  <div class="plate"><canvas id="view" width="948" height="604" role="img" aria-label="Radar image of the Toktogul reservoir"></canvas></div>
-  <div class="controls">
-    <button id="play" type="button">Play</button>
-    <input id="slider" type="range" min="0" max="10" step="1" value="0" aria-label="Image date">
-    <span class="datelabel" id="dateLabel"></span>
-  </div>
-  <div class="row">
-    <label><input type="checkbox" id="optShore" checked> <span><span class="key" style="background:var(--shore)"></span> Outline the water we detect</span></label>
-    <label><input type="checkbox" id="optGain" checked> <span><span class="key" style="background:var(--amber);height:.7em"></span> Colour the water gained since 20 June</span></label>
-    <button class="quiet" id="toDry" type="button">Show a dry day</button>
-    <button class="quiet" id="toRain" type="button">Show a wet day</button>
-  </div>
-  <p class="readout" id="readout" aria-live="polite"></p>
 </section>
 
-<section aria-labelledby="h-chart">
-  <h2 id="h-chart">The reservoir grew fastest at the end of June</h2>
-  <p id="chartLede"></p>
-  <div class="chartbox" tabindex="0" role="group" aria-label="Chart, scrolls sideways on small screens"><svg id="chart" viewBox="0 0 960 392" role="img" aria-labelledby="chartTitle"><title id="chartTitle">Water surface of the Toktogul reservoir by date, with official volume figures</title></svg></div>
-  <p class="note" id="chartNote"></p>
-</section>
-
-<section aria-labelledby="h-how">
-  <div class="two">
-    <div>
-      <h2 id="h-how">How we tell water from dry ground</h2>
-      <p>For this radar, calm water and dry, smooth ground are both very dark. One image cannot separate them. Rain can: wet ground turns bright, water does not change. Press “Show a dry day” and “Show a wet day” above to see it.</p>
-      <ol class="steps" id="steps"></ol>
+<section class="band tint" id="how" aria-labelledby="h-how">
+<div class="wrap">
+  <h2 id="h-how" class="rv" data-i18n="hHow">How we tell water from dry ground</h2>
+  <p class="intro rv" data-i18n="howP">For this radar, calm water and dry, smooth ground are both very dark. One image cannot tell them apart. Rain can: wet ground turns bright, and water does not change. Drag the divider to compare a dry day with a wet one.</p>
+  <div class="how">
+    <div class="rv">
+      <div class="compare" id="compare">
+        <canvas id="cmpA" width="948" height="604" role="img"></canvas>
+        <canvas id="cmpB" class="top-img" width="948" height="604" aria-hidden="true"></canvas>
+        <div class="pins" id="cmpPins"></div>
+        <span class="tag l" id="tagDry"></span><span class="tag r" id="tagWet"></span>
+        <div class="bar"></div>
+        <input type="range" id="cmpRange" min="0" max="100" value="50" aria-label="Move the divider between the dry day and the wet day">
+      </div>
+      <p class="cap" data-i18n="cmpCap">On the dry day the plain in the lower right is almost as dark as the reservoir. On the wet day it is clearly brighter, and the reservoir is not. A brightness threshold on one image counted such ground as water: our first attempt gave about 700 km² instead of about 215.</p>
     </div>
+    <ol class="steps rv" id="steps"></ol>
+  </div>
+  <div class="tested rv">
+    <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="14" fill="#1576b3"/><path d="M13 22.500l6 6 12-13" fill="none" stroke="#fff" stroke-width="3.400" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <div>
-      <h2>What this page cannot tell you</h2>
-      <ul class="plain" id="limits"></ul>
+      <h3 data-i18n="testedT">We tested it</h3>
+      <p data-i18n="testedP">Run on simulated radar scenes where the right answer is known in advance, the same code came within 1 km² of the true area. Real ground is messier.</p>
     </div>
   </div>
+</div>
 </section>
+
+<section class="band" id="limits" aria-labelledby="h-limits">
+<div class="wrap split">
+  <div class="rv">
+    <h2 id="h-limits" data-i18n="hLimits">What this page cannot tell you</h2>
+    <ul class="plain" id="limitsList"></ul>
+  </div>
+  <div class="rv">
+    <h2 data-i18n="hFaq">Short answers</h2>
+    <div class="faq">
+      <details><summary data-i18n="q1">Is this a forecast of power cuts?</summary><p data-i18n="a1">No. The page shows how much water surface the radar sees and what officials have said about the volume. Whether limits are introduced is decided by the government and depends on the weather, on imports and on how much electricity people use.</p></details>
+      <details><summary data-i18n="q2">Why do you show area and not volume?</summary><p data-i18n="a2">The radar sees the surface, not the depth. The area tells us whether the reservoir is growing or shrinking. The volume in billions of cubic metres comes from official statements.</p></details>
+      <details><summary data-i18n="q3">Can a satellite really see at night?</summary><p id="a3"></p></details>
+      <details><summary data-i18n="q4">Can I check this myself?</summary><p data-i18n="a4">Yes. NASA gives the data away for free, and our code is open: <a data-link="repo" href="#">GitHub repository</a>. With a free NASA Earthdata account you can run the same notebook in a browser.</p></details>
+    </div>
+  </div>
+</div>
+</section>
+
+</main>
 
 <footer>
-  <p><strong style="color:var(--ink)">Data.</strong> NISAR Level-2 GCOV radar backscatter (L-band, HH and HV), NASA and ISRO, distributed by the Alaska Satellite Facility DAAC. Track <span id="orbit"></span>. Products are provisional. Weather record for the wet days: <a href="https://power.larc.nasa.gov/">NASA POWER</a> daily precipitation (MERRA-2 and GEOS-IT). Official volumes: statements of the Ministry of Energy of the Kyrgyz Republic, reported by <a href="https://economist.kg/enierghietika/2026/07/08/toktogul-voda-11-5-mlrd/">Economist.kg on 8 July</a> and <a href="https://economist.kg/enierghietika/2026/10/19/vyrabotka-980-mln-2026/">19 October 2026</a>. Winter water use: <a href="https://www.intellinews.com/pannier-dire-power-deficit-pits-kyrgyz-president-against-city-mayors-and-kettle-against-washing-machine-412004/">bne IntelliNews</a>. Dead level and capacity: <a href="https://24.kg/obschestvo/363300_skolko_vodyi_byilo_vtoktogulskom_vodohranilische_na1aprelya_vraznyie_godyi/">24.kg</a>.</p>
-  <p><strong style="color:var(--ink)">Code.</strong> The notebook that reads the data and makes every number on this page is open: <a id="repo" href="#">GitHub repository</a>. Run on simulated radar scenes with a known answer, the same code came within 1 km² of the true area; real ground is messier.</p>
-  <p><strong style="color:var(--ink)">Use of AI.</strong> An AI assistant (Claude by Anthropic) helped write the processing code and this page. The team ran the analysis and checked the results against the images.</p>
-  <p><strong style="color:var(--ink)">Team <span id="teamName2"></span>.</strong> <span id="members"></span>. Bishkek, Kyrgyzstan.</p>
-</footer>
+<div class="wrap">
+  <p data-i18n="fData"><strong>Data.</strong> NISAR Level-2 GCOV radar backscatter (L-band, HH and HV), NASA and ISRO, distributed by the Alaska Satellite Facility DAAC. Track <span id="orbit"></span>. Products are provisional. Weather record for the wet days: <a data-link="power" href="https://power.larc.nasa.gov/">NASA POWER</a> daily precipitation (MERRA-2 and GEOS-IT).</p>
+  <p data-i18n="fOff"><strong>Official figures.</strong> Reservoir volumes, the ministry’s winter minimum and electricity generated in January–September 2026: statements of the Ministry of Energy of the Kyrgyz Republic, reported by <a data-link="eco1" href="https://economist.kg/enierghietika/2026/07/08/toktogul-voda-11-5-mlrd/">Economist.kg on 8 July</a> and <a data-link="eco2" href="https://economist.kg/enierghietika/2026/10/19/vyrabotka-980-mln-2026/">19 October 2026</a>. Electricity balance for 2026 and the statement on limits: <a data-link="vesti" href="https://vesti.kg/zxc/item/152439-minenergo-ne-planiruet-vvodit-ogranicheniya-na-elektroenergiyu-etoj-zimoj.html">Vesti.kg, 11 September 2026</a>. Dead level and spring volumes in past years: <a data-link="kg24" href="https://24.kg/obschestvo/363300_skolko_vodyi_byilo_vtoktogulskom_vodohranilische_na1aprelya_vraznyie_godyi/">24.kg</a>. Winter water use: <a data-link="bne" href="https://www.intellinews.com/pannier-dire-power-deficit-pits-kyrgyz-president-against-city-mayors-and-kettle-against-washing-machine-412004/">bne IntelliNews</a>. The president’s words on saving electricity: <a data-link="pres" href="https://24.kg/english/350266_President_of_Kyrgyzstan_explains_causes_of_electricity_shortages/">24.kg, 10 November 2025</a>.</p>
+  <p data-i18n="fCode"><strong>Code.</strong> The notebook that reads the data and makes every radar number on this page is open: <a data-link="repo" href="#">GitHub repository</a>.</p>
+  <p data-i18n="fAi"><strong>Use of AI.</strong> An AI assistant (Claude by Anthropic) helped write the processing code and this page, including its drawings. The team ran the analysis and checked the results against the images.</p>
+  <p data-i18n="fTeam"><strong>Team <span id="teamName2"></span>.</strong> <span id="members"></span>. Bishkek, Kyrgyzstan. NASA Space Apps Challenge 2026, challenge “Dancing with the SARs”.</p>
 </div>
+</footer>
 
 <script id="data" type="application/json">__DATA__</script>
 <script>
+document.documentElement.classList.add("js");
 // ---------- things the team can edit ----------
 const CONFIG = {
   projectName: "Toktogul Battery",
   team: "Paparizi",
-  members: ["Baitur Raimzhanov", "Amir Konurbaev", "Sultan Maksutaliev", "Timur Sultanov", "Bayeli Taalaibek uulu"],
+  members: ["Baitur Raimzhanov", "Sultan Maksutaliev"],
   repo: "https://github.com/",
-  // official figures, billion cubic metres
+  // official figures, billion cubic metres (Ministry of Energy, reported by Economist.kg)
   official: [{date: "2026-07-08", v: 10.2}, {date: "2026-10-01", v: 11.4}, {date: "2026-10-15", v: 11.345}],
   full: 19.5, dead: 5.5, target: 11.5, winterUse: [6, 7],
-  // sunset at the reservoir is 20:46 on 20 June and 18:06 on 30 October
-  lightNote: "Seven of the eleven are from after sunset, when a camera satellite sees little or nothing.",
-  // what NASA's weather record (POWER, point 41.85 N 72.90 E) says about the wet days in these images
-  rainNote: "NASA’s weather record shows about 24 mm of rain in the five days before 6 October, the wettest spell of the season, and light rain on 24 September.",
-  rainLimit: "We did not check the wet days against a local weather station. NASA’s weather record is one value for a square of mostly mountains about 50 km wide; it also shows showers in late June that left no trace near the reservoir in the radar images."
+  // electricity, billion kWh
+  hydroGen: 8.677, allGen: 11.314,                 // generated in January-September 2026 (Economist.kg, 19 October 2026)
+  yearUse: 19.6, yearImport: 4.1,                  // balance for 2026 named by the Minister of Energy (Vesti.kg, 11 September 2026)
+  lowSprings: [2009, 2015, 2024],                  // springs with about 6.4-6.5 billion m3 left on 1 April (24.kg, 24 February 2026)
+  // places written on the radar image: longitude, latitude; side = where the label sits (t, b, l, r, or c for a plain caption)
+  places: [
+    {id: "res", lon: 72.874, lat: 41.806, side: "c"},
+    {id: "town", lon: 72.9389, lat: 41.8722, side: "t"},
+    {id: "dam", lon: 72.6361, lat: 41.6571, side: "r"},
+    {id: "river", lon: 73.31, lat: 41.775, side: "l"}
+  ],
+  dryPlain: {lon: 73.22, lat: 41.687},             // dark dry ground pointed out in "How we tell water from dry ground"
+  utcOffset: 6                                     // Bishkek time
+};
+const LINKS = {
+  eco1: "https://economist.kg/enierghietika/2026/07/08/toktogul-voda-11-5-mlrd/",
+  eco2: "https://economist.kg/enierghietika/2026/10/19/vyrabotka-980-mln-2026/",
+  vesti: "https://vesti.kg/zxc/item/152439-minenergo-ne-planiruet-vvodit-ogranicheniya-na-elektroenergiyu-etoj-zimoj.html",
+  kg24: "https://24.kg/obschestvo/363300_skolko_vodyi_byilo_vtoktogulskom_vodohranilische_na1aprelya_vraznyie_godyi/",
+  pres: "https://24.kg/english/350266_President_of_Kyrgyzstan_explains_causes_of_electricity_shortages/",
+  bne: "https://www.intellinews.com/pannier-dire-power-deficit-pits-kyrgyz-president-against-city-mayors-and-kettle-against-washing-machine-412004/",
+  power: "https://power.larc.nasa.gov/"
 };
 // ----------------------------------------------
+
+// ---------- Russian text (the English text is in the page itself) ----------
+const RU = {
+  skip: "Перейти к содержанию",
+  by: "команда",
+  nav1: "Сейчас", nav2: "Из космоса", nav3: "Зима", nav4: "Как это работает",
+  lede: "Токтогульское водохранилище — главный запас электричества страны на зиму. Мы показываем его из космоса и объясняем простыми словами.",
+  labT: "Подвигайте уровень воды",
+  labReset: "Как сейчас",
+  p1t: "Проблема",
+  p1h: "Зимой свет в доме зависит от воды в одном водохранилище",
+  p1: "Но обычному человеку трудно узнать, сколько её там: официальные цифры звучат редко, и их не с чем сравнить. Много это или мало? Хватит ли на зиму?",
+  p3t: "Что даёт этот сайт",
+  w1t: "Один понятный ответ",
+  w1: "Сколько воды сейчас и какую её часть можно превратить в электричество.",
+  w2t: "Вид из космоса",
+  w2: "Радарный спутник NASA и ISRO пролетает над водохранилищем каждые 12 дней и видит воду даже ночью и сквозь облака.",
+  w3t: "Что это значит для вас",
+  w3: "Чего ждать зимой и почему просят беречь электричество.",
+  hWhy: "Почему одно водохранилище так важно",
+  c1t: "света даёт вода",
+  src1: 'Источник: <a data-link="eco2" href="#">Economist.kg, 19 октября 2026 г.</a>',
+  sL1: "лето: наполняется", sL2: "зима: пустеет",
+  c2t: "Летом наполняется, зимой пустеет",
+  c2p: "Летом тают снег и ледники, и водохранилище наполняется. В холода воды в реках мало, а электричества нужно больше всего, и станции работают на накопленном запасе.",
+  c4t: "киловатт-часов покупают за границей",
+  src4: 'Источник: <a data-link="vesti" href="#">Vesti.kg, 11 сентября 2026 г.</a>',
+  src3: 'Источники: Министерство энергетики в изложении <a data-link="eco2" href="#">Economist.kg, 19 октября 2026 г.</a>; <a data-link="kg24" href="#">24.kg, 24 февраля 2026 г.</a>',
+  hView: "А теперь посмотрите, как это выглядит из космоса",
+  optShore: "Берег", optGain: "Новая вода с первой даты", optNames: "Названия",
+  guideT: "Как читать этот снимок",
+  g1: "<b>Это не фотография.</b> Спутник посылает к земле радиоволны и записывает их эхо.",
+  g2: "<b>Чёрное — вода.</b> Гладкая поверхность, как зеркало, отражает сигнал в сторону, и назад почти ничего не возвращается.",
+  g3: "<b>Серое и белое — суша.</b> Неровная земля, горы и дома возвращают сигнал обратно.",
+  g4: "<b>Голубая линия</b> — берег, который нашла наша программа. <b>Оранжевым</b> отмечена вода, которой не было в первую дату.",
+  g5: "<b>Бледные вертикальные полосы</b> на воде — помехи самого радара, а не волны.",
+  hWinter: "Что это значит для наступающей зимы",
+  winSrc: 'Источники: Министерство энергетики в изложении <a data-link="eco1" href="#">Economist.kg, 8 июля</a> и <a data-link="eco2" href="#">19 октября 2026 г.</a>; расход воды за осень и зиму: <a data-link="bne" href="#">bne IntelliNews</a>.',
+  saveT: "Почему важно беречь электричество дома",
+  saveP: "Каждый неизрасходованный киловатт-час — это вода, которая останется за плотиной до весны. Как говорил президент в ноябре 2025 года, каждая включённая лампочка — это сотни литров токтогульской воды.",
+  saveSrc: 'Источник: <a data-link="pres" href="#">24.kg, 10 ноября 2025 г.</a>',
+  limT: "Будут ли ограничения?",
+  limP: "В интервью, опубликованном 11 сентября 2026 года, министр энергетики сказал, что ограничивать потребление электричества этой зимой не планируют, в том числе вводить лимит 5 кВт для населения. Как пройдёт зима, зависит от погоды, от импорта и от того, сколько электричества расходуем мы все.",
+  limSrc: 'Источник: <a data-link="vesti" href="#">Vesti.kg, 11 сентября 2026 г.</a>',
+  hChange: "Быстрее всего водохранилище росло в конце июня",
+  chartTitle: "Площадь воды Токтогульского водохранилища, км²",
+  key1: "Радарный снимок",
+  key2: "Влажный день: по нему проведён берег",
+  key3: "Разброс при более строгой и более мягкой проверке",
+  key4: "Дата официальных данных об объёме",
+  key5: "Дата, выбранная на снимках выше",
+  tableSum: "Показать цифры таблицей",
+  chartNote: "Нажмите на точку, чтобы увидеть этот снимок. Вертикальная ось начинается не с нуля, а примерно с 200 км², иначе изменение было бы не разглядеть.",
+  hHow: "Как мы отличаем воду от сухой земли",
+  howP: "Для этого радара спокойная вода и сухая ровная земля одинаково тёмные. По одному снимку их не различить. Помогает дождь: влажная земля становится светлой, а вода не меняется. Двигайте разделитель и сравните сухой день с влажным.",
+  cmpCap: "В сухой день равнина справа внизу почти такая же тёмная, как водохранилище. Во влажный день она заметно светлее, а водохранилище нет. Простой порог яркости на одном снимке принимал такую землю за воду: первая попытка дала около 700 км² вместо примерно 215.",
+  testedT: "Мы проверили метод",
+  testedP: "На смоделированных радарных снимках, где правильный ответ известен заранее, тот же код ошибся меньше чем на 1 км². Настоящая местность сложнее.",
+  hLimits: "Чего эта страница не знает",
+  hFaq: "Короткие ответы",
+  q1: "Это прогноз отключений?",
+  a1: "Нет. Страница показывает, какую площадь воды видит радар и что о её объёме говорили официальные лица. Вводить ли ограничения, решает правительство; это зависит от погоды, от импорта и от того, сколько электричества расходуют люди.",
+  q2: "Почему вы показываете площадь, а не объём?",
+  a2: "Радар видит поверхность, а не глубину. По площади понятно, растёт водохранилище или уменьшается. Объём в миллиардах кубометров взят из официальных заявлений.",
+  q3: "Спутник правда видит ночью?",
+  q4: "Можно проверить самому?",
+  a4: 'Да. NASA отдаёт эти данные бесплатно, а наш код открыт: <a data-link="repo" href="#">репозиторий на GitHub</a>. С бесплатной учётной записью NASA Earthdata тот же ноутбук запускается прямо в браузере.',
+  fData: '<strong>Данные.</strong> Радарные данные NISAR уровня 2 GCOV (L-диапазон, HH и HV), NASA и ISRO, распространяет Alaska Satellite Facility DAAC. Виток <span id="orbit"></span>. Продукты предварительные. Погодные данные для влажных дней: суточные осадки <a data-link="power" href="#">NASA POWER</a> (MERRA-2 и GEOS-IT).',
+  fOff: '<strong>Официальные цифры.</strong> Объём воды, минимум на зиму и выработка электроэнергии за январь — сентябрь 2026 года: заявления Министерства энергетики Кыргызской Республики в изложении <a data-link="eco1" href="#">Economist.kg, 8 июля</a> и <a data-link="eco2" href="#">19 октября 2026 г.</a> Баланс электроэнергии на 2026 год и слова министра об ограничениях: <a data-link="vesti" href="#">Vesti.kg, 11 сентября 2026 г.</a> Мёртвый объём и весенние запасы прошлых лет: <a data-link="kg24" href="#">24.kg</a>. Расход воды за осень и зиму: <a data-link="bne" href="#">bne IntelliNews</a>. Слова президента об экономии электричества: <a data-link="pres" href="#">24.kg, 10 ноября 2025 г.</a>',
+  fCode: '<strong>Код.</strong> Ноутбук, который читает данные и считает все радарные цифры на этой странице, открыт: <a data-link="repo" href="#">репозиторий на GitHub</a>.',
+  fAi: "<strong>Использование ИИ.</strong> Писать код обработки и эту страницу, включая рисунки, помогал ИИ-ассистент (Claude, Anthropic). Анализ провела команда; результаты она сверила со снимками.",
+  fTeam: '<strong>Команда <span id="teamName2"></span>.</strong> <span id="members"></span>. Бишкек, Кыргызстан. NASA Space Apps Challenge 2026, задание «Dancing with the SARs».'
+};
+
+// ---------- sentences that contain numbers, in both languages ----------
+const TXT = {
+  en: {
+    title: "Toktogul Battery: how charged is Kyrgyzstan’s winter battery?",
+    mon: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    monS: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    and: " and ", yes: "yes", play: "Play", pause: "Pause",
+    place: {res: "Toktogul reservoir", town: "Toktogul town", dam: "Dam and power plant", river: "The Naryn river flows in"},
+    placeS: {town: "Toktogul", dam: "Dam", river: "Naryn river"},
+    plain: "Dry ground, not water",
+    sliderAria: "Image date", cmpAria: "Move the divider between the dry day and the wet day", levelAria: "Water level in the drawing, billion cubic metres",
+    h1: p => `Kyrgyzstan’s battery<br>is <span class="pct">${p}%</span> charged`,
+    capStrip: d => `The drawing is simplified and not to scale. The figures are official: Ministry of Energy of the Kyrgyz Republic, ${d} (<a data-link="eco2" href="#">Economist.kg</a>).`,
+    sc: o => ({full: `Full: ${o.full}`, stop: `Stop line: ${o.dead}`, lake: "Reservoir", dam: "Dam and power plant", home: "Your home", snow: "Snow and glaciers", sat: "Radar satellite",
+      title: "A drawing of the valley: snowy mountains, a radar satellite in the sky, the reservoir behind a dam, a power plant, power lines and houses with lit windows. Moving the slider changes the water level; below the stop line the lights go out."}),
+    tagNow: v => `${v} bn m³`,
+    mCap: "of the usable store", mCapOff: "below the stop line",
+    scale: o => [`${o.dead}: turbines stop`, `${o.v}: now`, `${o.full}: full`],
+    labOn: o => `<b>${o.v} billion m³</b> in the reservoir${o.today ? `, as on ${o.date}` : ""}. <b>${o.usable}</b> of it can make electricity. The turbines are running and the lights are on.`,
+    labOff: o => `<b class="bad">${o.v} billion m³</b>: below the stop line of ${o.dead}. <b class="bad">The power plant cannot work normally</b>, and the country has to find its electricity elsewhere.`,
+    c1n: p => `${p}%`,
+    c1p: p => `In January–September 2026, hydropower plants made ${p}% of the electricity generated in Kyrgyzstan. The largest of them run on the water this reservoir releases.`,
+    c4n: k => `1 in ${k}`,
+    c4p: o => `By the ministry’s plan, ${o.imp} of the ${o.use} billion kWh the country uses in 2026 is imported, because the water is low.`,
+    nowDate: d => `${d} · official figure`,
+    nowH: p => `The reservoir holds <b>${p}%</b> of the water it can use`,
+    nowP: o => `There are <b>${o.v} billion m³</b> of water in it, out of ${o.full} when it is full. The lowest ${o.dead} cannot be used. That leaves <b>${o.usable} billion m³</b> for making electricity: ${o.pct}% of what fits above that line.`,
+    zones: o => [`${o.free} empty`, `${o.usable} can be used`, `${o.dead} cannot be used`],
+    marks: o => [`<b>${o.full}</b> billion m³: full reservoir`, `<b>${o.v}</b> billion m³: now`, `<b>${o.dead}</b>: below this line the turbines stop`],
+    tankAria: o => `Drawing of the reservoir as a vessel, to scale: ${o.v} of ${o.full} billion cubic metres of water. The lowest ${o.dead} cannot be used, ${o.usable} can be used, ${o.free} is empty space.`,
+    c3p: (dead, years) => `Below ${dead} billion m³, the “dead level”, the power plant cannot work normally. In the springs of ${years} only about 1 billion m³ was left above that line, and the country ran short of electricity.`,
+    winterP: o => `In July the Ministry of Energy named the minimum needed to get through the heating season: at least <b>${o.target} billion m³</b> in the reservoir before the cold arrives. On ${o.d1} it held about <b>${o.v1}</b>. So the reservoir entered winter with almost exactly the minimum.`,
+    winterNote: o => `About <b>${o.u} billion m³</b> of that can be used, and a normal autumn and winter take <b>${o.w0} to ${o.w1}</b>.`,
+    goal: o => [`The minimum the ministry named for winter`, `In the reservoir on ${o.d1}`, `What a normal autumn and winter take`],
+    goalIn: o => ({dead: [`${o.dead} cannot be used`, o.dead], use: [`${o.u} can be used`, o.u], from: `from ${o.w0}`, to: `to ${o.w1}`, key: ["cannot be used", "can be used"]}),
+    goalAria: o => `Bars on one scale, in billion cubic metres. The ministry’s minimum for winter: ${o.target}. In the reservoir on ${o.d1}: ${o.v1}, of which ${o.dead} cannot be used and ${o.u} can. A normal autumn and winter take ${o.w0} to ${o.w1}.`,
+    viewP: (n, a, b) => `${n} radar images from the same orbit, ${a} to ${b}. Pick a date or press play and watch the shoreline move.`,
+    viewAria: (d, a) => `Radar image of the Toktogul reservoir on ${d}. Detected water surface ${a} square kilometres.`,
+    vinfo: o => `<p class="vdate">${o.date}</p><p class="vtime ${o.night ? "night" : "day"}">${o.time} Bishkek time · ${o.night ? "after sunset" : "before sunset"}</p><p class="vnum"><b>${o.area} km²</b><span>water surface in this image</span></p><p class="vdelta${o.delta ? "" : " none"}">${o.delta ? `${o.delta} km² since ${o.since}` : "first image of the season"}</p>`,
+    vnote: o => (o.band ? `With a stricter or looser test the area comes out between ${o.lo} and ${o.hi} km². ` : "") + (o.rain ? "The ground was wet that day: the land is bright, the water is not. We draw the shoreline from days like this." : ""),
+    wr2p: (k, n) => `<b>Night is no obstacle.</b> A radar does not need the sun: ${k} of these ${n} images were taken after sunset, when a camera satellite sees little or nothing.`,
+    a3: (k, n) => `Yes. A radar brings its own “light”: it sends radio waves and listens for the echo, so darkness and clouds do not matter. ${k} of these ${n} images were taken after sunset.`,
+    chartLede: o => `Between ${o.d1} and ${o.d2} the water surface grew by about ${o.x} km²: roughly ${o.p} football pitches of new water in ${o.days} days. These are the weeks when snow and glaciers melt fastest and the Naryn river runs highest. After mid-July the surface changed little, while the official volume kept rising. One reason may be that the water was then climbing steeper shores, which adds depth but little area. Another is that our method undercounts small changes; see the limits below.`,
+    chartTiles: o => [[`${o.peak} km²`, "of water at the season’s high point"], [`+${o.rise} km²`, `since ${o.first}: about ${o.p} football pitches`], [o.time, `Bishkek time, every single image. ${o.k} of ${o.n} were taken after sunset.`]],
+    svgTitle: "Water surface of the Toktogul reservoir by date, with the dates of official volume figures",
+    official: v => `official: ${v} bn m³`,
+    pointAria: (d, a) => `${d}: ${a} square kilometres`,
+    tip: o => [`${o.area} km²`, `${o.date}, ${o.time}`, o.band ? `range ${o.lo}–${o.hi}` : "", o.rain ? "wet day" : ""],
+    th: ["Date", "Bishkek time", "Water surface, km²", "Range, km²", "Wet day"],
+    tagDry: d => `Dry day · ${d}`, tagWet: d => `Wet ground · ${d}`,
+    boost: (a, b) => a === b ? `about ${a} dB` : `${a} to ${b} dB`,
+    steps: o => [
+      "We read only the reservoir window from each NISAR scene in NASA’s cloud. A full scene is about 2 GB; the window is a few dozen megabytes.",
+      "We use scenes from one orbit only, so the radar looks at the mountains from the same side every time. A change in the picture is then a change on the ground.",
+      `We find the days when the ground was wet (${o.rain}): the land near the reservoir is ${o.boost} brighter than usual, the water is the same. NASA’s weather record shows about 24 mm of rain in the five days before 6 October, the wettest spell of the season, and light rain on 24 September.`,
+      "Water is what stays dark on those days. That shoreline is the season’s high-water mark.",
+      "For every other date we ask of each shoreline pixel: does it look the way it does on the wet days, when we know it is water? If yes on that date and all dates up to the wet day, it is water."
+    ],
+    limits: [
+      "The pixels we analyse are 80 m wide. Along a shoreline this long, that leaves the total area uncertain by several square kilometres. The change between dates is more reliable than the total.",
+      "Dry, smooth ground can pass for water between wet days, so growth after mid-July is probably undercounted.",
+      "We did not check the wet days against a local weather station. NASA’s weather record is one value for a square of mostly mountains about 50 km wide; it also shows showers in late June that left no trace near the reservoir in the radar images.",
+      "The narrow canyon next to the dam is only partly counted: steep walls disturb the radar there. Its area hardly changes.",
+      "There are no winter images yet. NISAR data for this area start in June 2026, so we show the reservoir filling, not emptying.",
+      "The volume and the percentage come from official statements, not from the radar. The radar gives the surface area.",
+      "NISAR products are still provisional, and one of our scenes comes from a newer processing version than the others."
+    ],
+    orbit: o => o.track + (o.direction === "D" ? " descending" : " ascending") + ", frame " + o.frame
+  },
+  ru: {
+    title: "Toktogul Battery: насколько заряжена батарейка Кыргызстана?",
+    mon: ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
+    monS: ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"],
+    and: " и ", yes: "да", play: "Пуск", pause: "Пауза",
+    place: {res: "Токтогульское\nводохранилище", town: "г. Токтогул", dam: "Плотина и ГЭС", river: "Здесь впадает Нарын"},
+    placeS: {town: "Токтогул", dam: "Плотина", river: "Нарын"},
+    plain: "Сухая земля, а не вода",
+    sliderAria: "Дата снимка", cmpAria: "Двигайте разделитель между сухим и влажным днём", levelAria: "Уровень воды на рисунке, млрд кубометров",
+    h1: p => `Батарейка Кыргызстана<br>заряжена на <span class="pct">${p}%</span>`,
+    capStrip: d => `Рисунок условный и не в масштабе. Цифры официальные: Министерство энергетики Кыргызской Республики, ${d} (<a data-link="eco2" href="#">Economist.kg</a>).`,
+    sc: o => ({full: `Полное: ${o.full}`, stop: `Стоп-линия: ${o.dead}`, lake: "Водохранилище", dam: "Плотина и ГЭС", home: "Ваш дом", snow: "Снег и ледники", sat: "Радарный спутник",
+      title: "Рисунок долины: снежные горы, радарный спутник в небе, водохранилище за плотиной, электростанция, линии электропередачи и дома со светящимися окнами. Ползунок меняет уровень воды; ниже стоп-линии свет гаснет."}),
+    tagNow: v => `${v} млрд м³`,
+    mCap: "полезного запаса", mCapOff: "ниже стоп-линии",
+    scale: o => [`${o.dead}: турбины стоят`, `${o.v}: сейчас`, `${o.full}: полное`],
+    labOn: o => `<b>${o.v} млрд м³</b> в водохранилище${o.today ? ` — как ${o.date}` : ""}. Для электричества доступно <b>${o.usable}</b>. Турбины работают, свет горит.`,
+    labOff: o => `<b class="bad">${o.v} млрд м³</b> — ниже стоп-линии ${o.dead}. <b class="bad">Электростанция не может нормально работать</b>, и электричество стране приходится искать в другом месте.`,
+    c1n: p => `${p}%`,
+    c1p: p => `В январе — сентябре 2026 года гидроэлектростанции дали ${p}% всей электроэнергии, выработанной в Кыргызстане. Крупнейшие из них работают на воде, которую отдаёт это водохранилище.`,
+    c4n: k => `1 из ${k}`,
+    c4p: o => `По плану министерства из ${o.use} млрд кВт·ч, которые страна потребит в 2026 году, ${o.imp} придётся импортировать: воды мало.`,
+    nowDate: d => `${d} · официальные данные`,
+    nowH: p => `В водохранилище <b>${p}%</b> воды, которую можно использовать`,
+    nowP: o => `Сейчас в нём <b>${o.v} млрд м³</b> воды из ${o.full} возможных. Нижние ${o.dead} использовать нельзя. Значит, для выработки электричества остаётся <b>${o.usable} млрд м³</b>: это ${o.pct}% от того, что помещается выше этой отметки.`,
+    zones: o => [`${o.free} свободно`, `${o.usable} можно использовать`, `${o.dead} нельзя использовать`],
+    marks: o => [`<b>${o.full}</b> млрд м³: полное водохранилище`, `<b>${o.v}</b> млрд м³: сейчас`, `<b>${o.dead}</b>: ниже этой отметки турбины останавливаются`],
+    tankAria: o => `Рисунок водохранилища в виде сосуда, в масштабе: ${o.v} из ${o.full} млрд кубометров воды. Нижние ${o.dead} использовать нельзя, ${o.usable} можно использовать, ${o.free} свободно.`,
+    c3p: (dead, years) => `Ниже ${dead} млрд м³, так называемого «мёртвого объёма», электростанция не может нормально работать. Весной ${years} годов над этой отметкой оставалось лишь около 1 млрд м³, и стране не хватало электричества.`,
+    winterP: o => `В июле Министерство энергетики назвало минимум, с которым можно пройти отопительный сезон: не меньше <b>${o.target} млрд м³</b> в водохранилище к началу холодов. На ${o.d1} в нём было около <b>${o.v1}</b>. То есть водохранилище вошло в зиму почти точно на минимуме.`,
+    winterNote: o => `Использовать из этого можно примерно <b>${o.u} млрд м³</b>, а обычные осень и зима забирают <b>от ${o.w0} до ${o.w1}</b>.`,
+    goal: o => [`Минимум на зиму, который назвало министерство`, `Было в водохранилище на ${o.d1}`, `Столько обычно забирают осень и зима`],
+    goalIn: o => ({dead: [`${o.dead} нельзя использовать`, o.dead], use: [`${o.u} можно использовать`, o.u], from: `от ${o.w0}`, to: `до ${o.w1}`, key: ["нельзя использовать", "можно использовать"]}),
+    goalAria: o => `Полосы в одном масштабе, млрд кубометров. Минимум на зиму, который назвало министерство: ${o.target}. Было в водохранилище на ${o.d1}: ${o.v1}, из них ${o.dead} использовать нельзя, ${o.u} можно. Обычные осень и зима забирают от ${o.w0} до ${o.w1}.`,
+    viewP: (n, a, b) => `Радарных снимков: ${n}. Все сделаны с одной и той же орбиты, с ${a} по ${b}. Выберите дату или нажмите «Пуск» и следите, как меняется берег.`,
+    viewAria: (d, a) => `Радарный снимок Токтогульского водохранилища, ${d}. Площадь воды ${a} квадратных километров.`,
+    vinfo: o => `<p class="vdate">${o.date}</p><p class="vtime ${o.night ? "night" : "day"}">${o.time} по Бишкеку · ${o.night ? "после заката" : "до заката"}</p><p class="vnum"><b>${o.area} км²</b><span>площадь воды на снимке</span></p><p class="vdelta${o.delta ? "" : " none"}">${o.delta ? `${o.delta} км² с ${o.since}` : "первый снимок сезона"}</p>`,
+    vnote: o => (o.band ? `Если проверять строже или мягче, площадь получается от ${o.lo} до ${o.hi} км². ` : "") + (o.rain ? "В этот день земля была влажной: суша на снимке светлая, а вода нет. По таким дням мы проводим береговую линию." : ""),
+    wr2p: (k, n) => `<b>Ночь не мешает.</b> Радару не нужно солнце: из ${n} снимков ${k} сделаны после заката, когда спутник с обычной камерой почти ничего не видит.`,
+    a3: (k, n) => `Да. Радар сам «подсвечивает» землю: посылает радиоволны и ловит эхо, поэтому темнота и облака ему не мешают. Из ${n} снимков на этой странице ${k} сделаны после захода солнца.`,
+    chartLede: o => `С ${o.d1} по ${o.d2} площадь воды выросла примерно на ${o.x} км² — это около ${o.p} футбольных полей новой воды за ${o.days} дней. В эти недели быстрее всего тают снег и ледники, и Нарын полноводнее всего. После середины июля площадь почти не менялась, хотя официальный объём продолжал расти. Одна из возможных причин: вода поднималась вдоль более крутых берегов, а это добавляет глубину, но почти не добавляет площадь. Другая: наш метод недооценивает небольшие изменения, об этом сказано в оговорках ниже.`,
+    chartTiles: o => [[`${o.peak} км²`, "воды в самой высокой точке сезона"], [`+${o.rise} км²`, `с ${o.first}: это около ${o.p} футбольных полей`], [o.time, `по бишкекскому времени сделан каждый снимок. После заката: ${o.k} из ${o.n}.`]],
+    svgTitle: "Площадь воды Токтогульского водохранилища по датам, с датами официальных данных об объёме",
+    official: v => `официально: ${v} млрд м³`,
+    pointAria: (d, a) => `${d}: ${a} квадратных километров`,
+    tip: o => [`${o.area} км²`, `${o.date}, ${o.time}`, o.band ? `разброс ${o.lo}–${o.hi}` : "", o.rain ? "влажный день" : ""],
+    th: ["Дата", "Время в Бишкеке", "Площадь воды, км²", "Разброс, км²", "Влажный день"],
+    tagDry: d => `Сухой день · ${d}`, tagWet: d => `Влажная земля · ${d}`,
+    boost: (a, b) => a === b ? `примерно на ${a} дБ` : `на ${a}–${b} дБ`,
+    steps: o => [
+      "Из каждой сцены NISAR в облаке NASA мы читаем только окно с водохранилищем. Целая сцена весит около 2 ГБ, окно — несколько десятков мегабайт.",
+      "Берём сцены только с одной орбиты, чтобы радар каждый раз смотрел на горы с одной и той же стороны. Тогда изменение на снимке означает изменение на земле.",
+      `Находим дни, когда земля была влажной (${o.rain}): суша у водохранилища ${o.boost} ярче обычного, а вода такая же. По погодным данным NASA, за пять дней до 6 октября выпало около 24 мм осадков, это самый дождливый период сезона, а 24 сентября прошёл небольшой дождь.`,
+      "Вода — это то, что в такие дни остаётся тёмным. Эта береговая линия показывает самый высокий уровень за сезон.",
+      "Для каждой другой даты проверяем каждый пиксель у берега: выглядит ли он так же, как во влажные дни, когда мы точно знаем, что это вода? Если да, и в эту дату, и во все даты до влажного дня, значит, это вода."
+    ],
+    limits: [
+      "Пиксели, с которыми мы работаем, имеют ширину 80 м. При такой длинной береговой линии общая площадь известна с точностью до нескольких квадратных километров. Изменение от даты к дате надёжнее, чем сама величина.",
+      "Между влажными днями сухая ровная земля может сойти за воду, поэтому рост после середины июля, скорее всего, занижен.",
+      "Мы не сверяли влажные дни с местной метеостанцией. Погодные данные NASA дают одно значение на квадрат шириной около 50 км, где в основном горы; они показывают и ливни в конце июня, которые на радарных снимках у водохранилища следа не оставили.",
+      "Узкий каньон у плотины учтён лишь частично: крутые стены мешают радару. Его площадь почти не меняется.",
+      "Зимних снимков пока нет. Данные NISAR по этому району начинаются с июня 2026 года, поэтому мы показываем, как водохранилище наполняется, а не как пустеет.",
+      "Объём и процент взяты из официальных заявлений, а не из радарных данных. Радар даёт площадь поверхности.",
+      "Продукты NISAR пока предварительные, и один из наших снимков обработан более новой версией алгоритма, чем остальные."
+    ],
+    orbit: o => o.track + (o.direction === "D" ? ", нисходящий" : ", восходящий") + ", кадр " + o.frame
+  }
+};
+
+// ---------- data and helpers ----------
 const D = JSON.parse(document.getElementById("data").textContent);
 const N = D.dates.length, [W, H] = D.size;
 const $ = id => document.getElementById(id);
-const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-const longDate = s => { const [y, m, d] = s.split("-").map(Number); return d + " " + MONTHS[m - 1] + " " + y; };
-const shortDate = s => { const [y, m, d] = s.split("-").map(Number); return d + " " + MONTHS[m - 1].slice(0, 3); };
-const dayNum = s => Date.UTC(...s.split("-").map((v, i) => i === 1 ? Number(v) - 1 : Number(v))) / 864e5;
-const localTime = t => { const h = (Number(t.slice(9, 11)) + 6) % 24, m = t.slice(11, 13); return String(h).padStart(2, "0") + ":" + m; };
-const f1 = x => x.toFixed(1);
-
-$("projName").textContent = CONFIG.projectName;
-$("teamName").textContent = CONFIG.team; $("teamName2").textContent = CONFIG.team;
-$("members").textContent = CONFIG.members.join(", ");
-(function () {            // on GitHub Pages the link to the code is worked out from the page address
-  let url = CONFIG.repo;
-  const m = location.hostname.match(/^([^.]+)\.github\.io$/);
-  if ((!url || url === "https://github.com/") && m) url = "https://github.com/" + m[1] + "/" + (location.pathname.split("/")[1] || location.hostname);
-  if (url && url !== "https://github.com/") $("repo").href = url;
-  else $("repo").replaceWith(document.createTextNode("the team’s GitHub repository"));
-})();
-$("orbit").textContent = D.orbit.track + (D.orbit.direction === "D" ? " descending" : " ascending") + ", frame " + D.orbit.frame;
-
 const rows = D.rows, first = rows[0];
 const peak = rows.reduce((a, b) => b.area_km2 > a.area_km2 ? b : a);
 const rise = peak.area_km2 - first.area_km2;
 const lastOff = CONFIG.official[CONFIG.official.length - 1];
-const charge = 100 * (lastOff.v - CONFIG.dead) / (CONFIG.full - CONFIG.dead);
 const usable = lastOff.v - CONFIG.dead;
+const charge = 100 * usable / (CONFIG.full - CONFIG.dead);
+const rainIdx = rows.findIndex(r => r.rain_check), dryIdx = rainIdx > 0 ? rainIdx - 1 : 0;
+const PITCH_KM2 = 0.00714;                                     // a football pitch of 105 x 68 m
+const calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+const ymd = s => s.split("-").map(Number);
+const dayNum = s => { const [y, m, d] = ymd(s); return Date.UTC(y, m - 1, d) / 864e5; };
+const localTime = t => { const h = (Number(t.slice(9, 11)) + CONFIG.utcOffset) % 24; return String(h).padStart(2, "0") + ":" + t.slice(11, 13); };
 
-// ---------- hero facts ----------
-[
-  `<b>${Math.round(peak.area_km2)} km² of water</b> at the season’s high point, about ${Math.round(rise)} km² more than on ${shortDate(first.date)}.`,
-  `<b>${lastOff.v.toFixed(2)} billion m³</b> on ${longDate(lastOff.date)}, by the official count. The part of the reservoir that power plants can use is ${Math.round(charge)}% full.`,
-  `<b>Every image was taken at ${localTime(D.times_utc[0])} Bishkek time.</b> ${CONFIG.lightNote}`
-].forEach(t => { const li = document.createElement("li"); li.innerHTML = t; $("facts").appendChild(li); });
+function sunsetUTC(date, lat, lon) {                           // minutes after 00:00 UTC, good to a few minutes
+  const [y, m, d] = ymd(date), n = Math.round((Date.UTC(y, m - 1, d) - Date.UTC(y, 0, 0)) / 864e5), k = Math.PI / 180;
+  const dec = -23.44 * Math.cos(k * 360 / 365 * (n + 10)), B = k * 360 / 365 * (n - 81);
+  const eot = 9.87 * Math.sin(2 * B) - 7.53 * Math.cos(B) - 1.5 * Math.sin(B);
+  const c = (Math.sin(-0.833 * k) - Math.sin(lat * k) * Math.sin(dec * k)) / (Math.cos(lat * k) * Math.cos(dec * k));
+  return 720 - 4 * lon - eot + 4 * Math.acos(Math.max(-1, Math.min(1, c))) / k;
+}
+const mid = [0, 1].map(i => D.corners.reduce((s, c) => s + c[i], 0) / 4);      // longitude and latitude of the middle of the image
+const night = D.times_utc.map((t, i) => Number(t.slice(9, 11)) * 60 + Number(t.slice(11, 13)) + Number(t.slice(13, 15)) / 60 > sunsetUTC(D.dates[i], mid[1], mid[0]));
+const nNight = night.filter(Boolean).length;
 
-// ---------- gauge ----------
-(function () {
-  const svg = $("gauge"), ns = "http://www.w3.org/2000/svg";
-  const add = (tag, at, txt) => { const e = document.createElementNS(ns, tag); for (const k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; };
-  const x0 = 24, w = 92, top = 22, bot = 408, y = v => bot - (bot - top) * v / CONFIG.full;
-  const defs = add("defs", {});
-  defs.innerHTML = '<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#d5dde0"/><line x1="0" y1="0" x2="0" y2="7" stroke="#8b9aa1" stroke-width="2"/></pattern>';
-  add("rect", {x: x0, y: top, width: w, height: bot - top, fill: "#fff", stroke: "#13222c", "stroke-width": 1.5});
-  add("rect", {x: x0, y: y(lastOff.v), width: w, height: y(CONFIG.dead) - y(lastOff.v), fill: "#1c6e8c"});
-  add("rect", {x: x0, y: y(CONFIG.dead), width: w, height: bot - y(CONFIG.dead), fill: "url(#hatch)"});
-  add("rect", {x: x0, y: top, width: w, height: bot - top, fill: "none", stroke: "#13222c", "stroke-width": 1.5});
-  for (let v = 0; v <= 19; v++) add("line", {x1: x0 + w, x2: x0 + w + (v % 5 === 0 ? 9 : 5), y1: y(v), y2: y(v), stroke: "#13222c", "stroke-width": 1});
-  const label = (v, title, sub, bold) => {
-    add("line", {x1: x0, x2: x0 + w + 16, y1: y(v), y2: y(v), stroke: "#13222c", "stroke-width": bold ? 2 : 1, "stroke-dasharray": bold ? "" : "4 3"});
-    add("text", {x: x0 + w + 22, y: y(v) - 3, "font-size": 15, "font-weight": bold ? 600 : 400, fill: "#13222c"}, title);
-    if (sub) add("text", {x: x0 + w + 22, y: y(v) + 14, "font-size": 12.5, fill: "#51626b"}, sub);
-  };
-  label(CONFIG.full, CONFIG.full + " full", "billion m³");
-  label(lastOff.v, lastOff.v.toFixed(2) + " now", shortDate(lastOff.date) + ", official", true);
-  label(CONFIG.dead, CONFIG.dead + " dead level", "turbines cannot use the rest");
-  add("text", {x: x0 + w / 2, y: (y(lastOff.v) + y(CONFIG.dead)) / 2 + 9, "text-anchor": "middle", "font-size": 27, "font-weight": 600, fill: "#fff", "font-family": "Source Serif 4, Georgia, serif"}, Math.round(charge) + "%");
-  $("gaugeCap").innerHTML = `About ${f1(usable)} billion m³ can be used. A normal autumn and winter take ${CONFIG.winterUse[0]} to ${CONFIG.winterUse[1]}. The ministry wanted at least ${CONFIG.target} by winter.`;
-})();
+function uvOf(lon, lat) {                                      // place on the image (0..1, 0..1) of a point given by longitude and latitude
+  const [a, b, c, d] = D.corners;                              // top-left, top-right, bottom-right, bottom-left
+  let u = .5, v = .5;
+  for (let i = 0; i < 8; i++) {
+    const fx = (1 - u) * (1 - v) * a[0] + u * (1 - v) * b[0] + u * v * c[0] + (1 - u) * v * d[0] - lon;
+    const fy = (1 - u) * (1 - v) * a[1] + u * (1 - v) * b[1] + u * v * c[1] + (1 - u) * v * d[1] - lat;
+    const xu = (1 - v) * (b[0] - a[0]) + v * (c[0] - d[0]), xv = (1 - u) * (d[0] - a[0]) + u * (c[0] - b[0]);
+    const yu = (1 - v) * (b[1] - a[1]) + v * (c[1] - d[1]), yv = (1 - u) * (d[1] - a[1]) + u * (c[1] - b[1]);
+    const det = xu * yv - xv * yu; if (!det) break;
+    u -= (fx * yv - fy * xv) / det; v -= (fy * xu - fx * yu) / det;
+  }
+  return [u, v];
+}
+
+// ---------- language ----------
+const STORE = "tb-lang";
+const EN = {};
+document.querySelectorAll("[data-i18n]").forEach(e => { EN[e.dataset.i18n] = e.innerHTML; });
+let lang = "en", T = TXT.en;
+const num = (x, d = 1) => { const s = Number(x).toFixed(d); return lang === "ru" ? s.replace(".", ",") : s; };
+const nf = x => { const s = String(+Number(x).toFixed(3)); return lang === "ru" ? s.replace(".", ",") : s; };
+const big = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, lang === "ru" ? " " : ",");
+const dayMonth = s => { const [, m, d] = ymd(s); return d + " " + T.mon[m - 1]; };
+const dateY = s => dayMonth(s) + " " + ymd(s)[0];
+const fullDate = s => dateY(s) + (lang === "ru" ? " года" : "");
+const shortDate = s => { const [, m, d] = ymd(s); return d + " " + T.monS[m - 1]; };
+const list = a => a.length < 2 ? a.join("") : a.slice(0, -1).join(", ") + T.and + a[a.length - 1];
+
+function pickLang() {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q === "ru" || q === "en") return q;
+  try { const s = localStorage.getItem(STORE); if (s === "ru" || s === "en") return s; } catch (e) {}
+  const prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+  for (const p of prefs) { const c = String(p).toLowerCase().slice(0, 2); if (c === "en") return "en"; if (["ru", "ky", "kk", "uz", "tg"].includes(c)) return "ru"; }
+  return "en";
+}
+function repoUrl() {                                           // on GitHub Pages the link to the code is worked out from the page address
+  let url = CONFIG.repo;
+  const m = location.hostname.match(/^([^.]+)\.github\.io$/);
+  if ((!url || url === "https://github.com/") && m) url = "https://github.com/" + m[1] + "/" + (location.pathname.split("/")[1] || location.hostname);
+  return url && url !== "https://github.com/" ? url : "";
+}
+function fixLinks() {
+  document.querySelectorAll("a[data-link]").forEach(a => {
+    const k = a.dataset.link;
+    if (k === "repo") { const u = repoUrl(); if (u) a.href = u; else a.replaceWith(document.createTextNode(a.textContent)); }
+    else if (LINKS[k]) a.href = LINKS[k];
+  });
+}
+function setLang(l, remember) {
+  lang = l === "ru" ? "ru" : "en"; T = TXT[lang];
+  document.documentElement.lang = lang; document.title = T.title;
+  document.querySelectorAll("[data-i18n]").forEach(e => { const s = (lang === "ru" ? RU : EN)[e.dataset.i18n]; if (s != null) e.innerHTML = s; });
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  if (remember) {
+    try { localStorage.setItem(STORE, lang); } catch (e) {}
+    try { const u = new URL(location.href); u.searchParams.set("lang", lang); history.replaceState(null, "", u); } catch (e) {}
+  }
+  renderAll();
+}
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang, true)));
+
+// ---------- the living picture at the top ----------
+const LV = {min: 2, max: CONFIG.full, bed: 300, crest: 180, h: 440};      // places in the drawing: lake bed, full level, height of the picture
+const levelY = v => LV.bed - (LV.bed - LV.crest) * Math.max(0, Math.min(CONFIG.full, v)) / CONFIG.full;
+const sliderAt = v => ((v - LV.min) / (LV.max - LV.min)).toFixed(4);
+function setLevel(v) {
+  const y = levelY(v), on = v >= CONFIG.dead, today = Math.abs(v - lastOff.v) < 0.03, lv = $("level");
+  const pct = Math.max(0, Math.round(100 * (v - CONFIG.dead) / (CONFIG.full - CONFIG.dead)));
+  $("scWater").setAttribute("y", y); $("scWater").setAttribute("height", Math.max(0, LV.bed + 4 - y));
+  $("scWave").setAttribute("transform", `translate(0 ${y})`);
+  $("scBoat").setAttribute("transform", `translate(566 ${y})`);
+  $("tNow").style.top = (100 * y / LV.h).toFixed(2) + "%";
+  $("tNow").textContent = T.tagNow(today ? nf(lastOff.v) : num(v));
+  $("tLake").hidden = y > 272;
+  $("hero").classList.toggle("off", !on);
+  lv.style.setProperty("--p", sliderAt(v)); lv.classList.toggle("bad", !on);
+  $("pulse").style.setProperty("--p", sliderAt(v));
+  $("mFill").setAttribute("width", (62 * Math.min(1, pct / 100)).toFixed(1));
+  $("meter").classList.toggle("bad", !on);
+  $("mPct").textContent = pct + "%"; $("mCap").textContent = on ? T.mCap : T.mCapOff;
+  const o = {v: today ? nf(lastOff.v) : num(v), dead: nf(CONFIG.dead), usable: num(Math.max(0, v - CONFIG.dead)), today, date: dayMonth(lastOff.date)};
+  $("labOut").innerHTML = on ? T.labOn(o) : T.labOff(o);
+  $("labReset").style.visibility = today ? "hidden" : "visible";
+}
+$("level").addEventListener("input", e => { $("pulse").hidden = true; setLevel(Number(e.target.value)); });
+$("labReset").addEventListener("click", () => { $("level").value = lastOff.v; setLevel(lastOff.v); });
+function renderScene() {
+  const s = T.sc({full: nf(CONFIG.full), dead: nf(CONFIG.dead)}), yStop = levelY(CONFIG.dead);
+  $("sceneTitle").textContent = s.title;
+  [["tFull", s.full], ["tStop", s.stop], ["tLake", s.lake], ["tDam", s.dam], ["tHome", s.home], ["tSnow", s.snow], ["tSat", s.sat]].forEach(([id, t]) => { $(id).textContent = t; });
+  $("scStopLine").setAttribute("d", `M240 ${yStop.toFixed(1)}H620`);
+  $("tStop").style.top = (100 * yStop / LV.h).toFixed(2) + "%";
+  const lv = $("level"); lv.min = LV.min; lv.max = LV.max; lv.setAttribute("aria-label", T.levelAria);
+  lv.style.setProperty("--dead", sliderAt(CONFIG.dead));
+  const marks = T.scale({dead: nf(CONFIG.dead), v: num(lastOff.v), full: nf(CONFIG.full)}), at = [CONFIG.dead, lastOff.v, CONFIG.full], box = $("labScale");
+  box.innerHTML = "";
+  marks.forEach((t, i) => { const sp = document.createElement("span"); sp.textContent = t; sp.style.setProperty("--p", sliderAt(at[i])); if (!i) sp.className = "stop"; box.appendChild(sp); });
+  setLevel(Number(lv.value));
+}
+
+// ---------- text and drawings that depend on the numbers ----------
+function tiles(id, items) {
+  const box = $(id); box.innerHTML = "";
+  items.forEach(([v, t]) => { const d = document.createElement("div"); d.className = "tile"; const b = document.createElement("b"); b.textContent = v; const s = document.createElement("span"); s.textContent = t; d.append(b, s); box.appendChild(d); });
+}
+function pics(id, sym, total, lit, cls) {
+  const box = $(id); box.innerHTML = "";
+  for (let i = 0; i < total; i++) box.insertAdjacentHTML("beforeend", `<svg style="--i:${i}" class="${i + 1 <= lit ? cls : lit - i >= 0.25 ? "part" : ""}"><use href="#${sym}"/></svg>`);      // a paler picture stands for a part of one
+}
+function pinsInto(box, places) {
+  box.innerHTML = "";
+  places.forEach(p => {
+    const [u, v] = uvOf(p.lon, p.lat);
+    if (!(u > .02 && u < .98 && v > .04 && v < .96)) return;
+    const e = document.createElement("div"); e.className = "pin " + (p.side || "t");
+    e.style.left = (u * 100).toFixed(2) + "%"; e.style.top = (v * 100).toFixed(2) + "%";
+    const s = document.createElement("span"); s.textContent = p.text; e.appendChild(s);
+    if (p.short) { s.className = "lg"; const t = document.createElement("span"); t.className = "sm"; t.textContent = p.short; e.appendChild(t); }   // shorter name for phone screens
+    box.appendChild(e);
+  });
+}
+function renderTank() {                                        // the reservoir drawn as a vessel, to scale
+  const svg = $("tank"), ns = "http://www.w3.org/2000/svg", SIZE = 420;
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  const add = (tag, at, parent) => { const e = document.createElementNS(ns, tag); for (const k in at) e.setAttribute(k, at[k]); (parent || svg).appendChild(e); return e; };
+  const x = 16, w = 170, top = 30, bot = 400, y = v => bot - (bot - top) * v / CONFIG.full;
+  const yNow = y(lastOff.v), yDead = y(CONFIG.dead), free = CONFIG.full - lastOff.v;
+  add("rect", {x, y: top, width: w, height: bot - top, rx: 22}, add("clipPath", {id: "tankClip"}));
+  const g = add("g", {"clip-path": "url(#tankClip)"});
+  add("rect", {x, y: top, width: w, height: bot - top, fill: "#eef7fd"}, g);
+  let d = `M${x} ${yNow}`;
+  for (let i = 0; i < 4; i++) d += ` q${w / 16} -7 ${w / 8} 0 t${w / 8} 0`;
+  add("path", {d: d + ` V${yDead} H${x} Z`, fill: "#1576b3", class: "tw"}, g);
+  add("rect", {x, y: yDead, width: w, height: bot - yDead, fill: "#6f8494"}, g);
+  add("rect", {x, y: top, width: w, height: bot - top, rx: 22, fill: "none", stroke: "#12314a", "stroke-width": 3.5});
+  [[CONFIG.full, 2], [lastOff.v, 3.5], [CONFIG.dead, 2]].forEach(([v, sw]) => add("path", {d: `M${x + w + 6} ${y(v)} h20`, stroke: "#12314a", "stroke-width": sw, "stroke-linecap": "round"}));
+  const o = {v: nf(lastOff.v), full: nf(CONFIG.full), dead: nf(CONFIG.dead), usable: num(usable), free: num(free)};
+  svg.setAttribute("aria-label", T.tankAria(o));
+  const put = (box, items) => { box.innerHTML = ""; items.forEach(([at, html, cls]) => { const p = document.createElement("p"); p.style.top = (at / SIZE * 100).toFixed(2) + "%"; if (cls) p.className = cls; p.innerHTML = html; box.appendChild(p); }); };
+  const z = T.zones(o), m = T.marks(o);
+  put($("tankZones"), [[(top + yNow) / 2, z[0], ""], [(yNow + yDead) / 2, z[1], "on"], [(yDead + bot) / 2, z[2], "on"]]);
+  put($("tankMarks"), [[top, m[0], ""], [yNow, m[1], "now-mark"], [yDead, m[2], ""]]);
+}
+function renderText() {
+  $("projName").textContent = CONFIG.projectName; $("teamName").textContent = CONFIG.team; $("teamName2").textContent = CONFIG.team;
+  $("members").textContent = CONFIG.members.join(", "); $("orbit").textContent = T.orbit(D.orbit);
+  // the first screen
+  const pct = Math.round(charge), free = CONFIG.full - lastOff.v;
+  const o = {v: nf(lastOff.v), full: nf(CONFIG.full), dead: nf(CONFIG.dead), usable: num(usable), free: num(free), pct};
+  $("h-top").innerHTML = T.h1(pct);
+  $("capStrip").innerHTML = T.capStrip(fullDate(lastOff.date));
+  renderScene();
+  // why it matters
+  const hydro = Math.round(100 * CONFIG.hydroGen / CONFIG.allGen), k = Math.round(CONFIG.yearUse / CONFIG.yearImport);
+  $("c1n").textContent = T.c1n(hydro); $("c1p").textContent = T.c1p(hydro); pics("bulbs", "i-bulb", 10, hydro / 10, "on");
+  $("c4n").textContent = T.c4n(k); $("c4p").textContent = T.c4p({imp: nf(CONFIG.yearImport), use: nf(CONFIG.yearUse)}); pics("plugs", "i-plug", k, 1, "hot");
+  // how much water now
+  $("nowDate").textContent = T.nowDate(fullDate(lastOff.date));
+  $("nowH").innerHTML = T.nowH(pct);
+  $("nowP").innerHTML = T.nowP(o);
+  $("c3p").textContent = T.c3p(nf(CONFIG.dead), list(CONFIG.lowSprings.map(String)));
+  renderTank();
+  // this winter
+  const prev = CONFIG.official[CONFIG.official.length - 2] || lastOff, use1 = prev.v - CONFIG.dead, [w0, w1] = CONFIG.winterUse;
+  const wo = {target: nf(CONFIG.target), d1: dayMonth(prev.date), v1: nf(prev.v), u: num(use1), dead: nf(CONFIG.dead), w0: nf(w0), w1: nf(w1)};
+  $("winterP").innerHTML = T.winterP(wo); $("winterNote").innerHTML = T.winterNote(wo);
+  const top = Math.max(CONFIG.target, prev.v, CONFIG.dead + w1), wd = x => `style="width:${(100 * x / top).toFixed(2)}%"`;      // all bars share one scale
+  const gl = T.goal({d1: fullDate(prev.date)}), gi = T.goalIn(wo), two = a => `<span class="lg">${a[0]}</span><span class="sm">${a[1]}</span>`;
+  $("goal").innerHTML =
+    `<div class="bal-row"><span>${gl[0]}</span><div class="bal-bar"><i class="dead" ${wd(CONFIG.dead)}>${two(gi.dead)}</i><i class="need" ${wd(CONFIG.target - CONFIG.dead)}></i></div><b>${wo.target}</b></div>` +
+    `<div class="bal-row"><span>${gl[1]}</span><div class="bal-bar"><i class="dead" ${wd(CONFIG.dead)}>${two(gi.dead)}</i><i class="use" ${wd(use1)}>${two(gi.use)}</i></div><b>${wo.v1}</b></div>` +
+    `<div class="bal-row"><span>${gl[2]}</span><div class="bal-bar"><i class="gap" ${wd(CONFIG.dead)}></i><i class="draw" ${wd(w0)}>${gi.from}</i><i class="draw2" ${wd(w1 - w0)}>${gi.to}</i></div><b>${wo.w0}–${wo.w1}</b></div>` +
+    `<p class="bal-key"><span><i class="dead"></i>${gi.key[0]}</span><span><i class="use"></i>${gi.key[1]}</span></p>`;
+  $("goal").setAttribute("aria-label", T.goalAria({...wo, d1: fullDate(prev.date)}));
+  // pictures from space
+  $("viewP").textContent = T.viewP(N, dayMonth(D.dates[0]), fullDate(D.dates[N - 1]));
+  $("wr2p").innerHTML = T.wr2p(nNight, N); $("a3").textContent = T.a3(nNight, N);
+  $("play").textContent = timer ? T.pause : T.play;
+  $("strip").setAttribute("aria-label", T.sliderAria);
+  [...$("strip").children].forEach((b, i) => { b.lastChild.textContent = shortDate(rows[i].date); b.setAttribute("aria-label", fullDate(rows[i].date)); });
+  pinsInto($("pins"), CONFIG.places.map(p => ({...p, text: T.place[p.id] || p.id, short: T.placeS[p.id]})));
+  // chart texts
+  const second = rows[1], grow = second.area_km2 - first.area_km2;
+  $("chartLede").textContent = T.chartLede({d1: dayMonth(first.date), d2: dayMonth(second.date), x: Math.round(grow), p: big(Math.round(grow / PITCH_KM2 / 100) * 100), days: Math.round(dayNum(second.date) - dayNum(first.date))});
+  tiles("chartTiles", T.chartTiles({peak: Math.round(peak.area_km2), rise: Math.round(rise), first: dayMonth(first.date), p: big(Math.round(rise / PITCH_KM2 / 100) * 100), time: localTime(D.times_utc[0]), k: nNight, n: N}));
+  // method and limits
+  $("cmpRange").setAttribute("aria-label", T.cmpAria);
+  if (rainIdx >= 0) {
+    $("tagDry").textContent = T.tagDry(shortDate(D.dates[dryIdx])); $("tagWet").textContent = T.tagWet(shortDate(D.dates[rainIdx]));
+    $("cmpA").setAttribute("aria-label", T.tagDry(dayMonth(D.dates[dryIdx])) + " / " + T.tagWet(dayMonth(D.dates[rainIdx])));
+    pinsInto($("cmpPins"), [{...CONFIG.dryPlain, side: "t", text: T.plain}]);
+  } else $("compare").parentElement.hidden = true;
+  const wet = rows.filter(r => r.rain_check), usual = rows.map(r => r.land_hh_db).sort((a, b) => a - b)[Math.floor(N / 2)];
+  const boost = wet.map(r => Math.round(r.land_hh_db - usual)).sort((a, b) => a - b);
+  const st = $("steps"); st.innerHTML = "";
+  T.steps({rain: list(wet.map(r => dayMonth(r.date))), boost: boost.length ? T.boost(boost[0], boost[boost.length - 1]) : ""}).forEach(t => { const li = document.createElement("li"); li.textContent = t; st.appendChild(li); });
+  const lm = $("limitsList"); lm.innerHTML = "";
+  T.limits.forEach(t => { const li = document.createElement("li"); li.textContent = t; lm.appendChild(li); });
+}
 
 // ---------- radar viewer ----------
-const cv = $("view"), ctx = cv.getContext("2d");
+const cv = $("radar"), ctx = cv.getContext("2d");
 const imgs = [], shore = [], gain = [];
 let cur = 0, timer = null, ready = false;
+[cv, $("cmpA"), $("cmpB")].forEach(c => { c.width = W; c.height = H; });
 const loadImg = src => new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = src; });
 function maskBits(im) {
   const c = document.createElement("canvas"); c.width = W; c.height = H; const x = c.getContext("2d");
@@ -221,100 +1315,145 @@ async function boot() {
   const at = (m, r, q) => (r < 0 || q < 0 || r >= H || q >= W) ? 0 : m[r * W + q];
   for (let i = 0; i < N; i++) {
     imgs.push(ims[i]); const m = mks[i], m0 = mks[0];
-    shore.push(layer((r, q) => (m[r * W + q] && !(at(m, r - 1, q) && at(m, r + 1, q) && at(m, r, q - 1) && at(m, r, q + 1))) ? [77, 216, 240, 255] : null));
+    shore.push(layer((r, q) => { const n4 = at(m, r - 1, q) + at(m, r + 1, q) + at(m, r, q - 1) + at(m, r, q + 1); return (m[r * W + q] ? n4 < 4 : n4 > 0) ? [77, 216, 240, 255] : null; }));
     gain.push(layer((r, q) => (m[r * W + q] && !m0[r * W + q]) ? [255, 184, 28, 205] : null));
   }
+  [...$("strip").children].forEach((b, i) => { const c = b.firstChild; c.getContext("2d").drawImage(ims[i], 0, 0, c.width, c.height); });
   ready = true;
-  const h = location.hash.match(/d=(\d+)/); if (h) cur = Math.min(N - 1, Number(h[1]));
-  $("slider").value = cur; draw();
+  const h = location.hash.match(/d=(\d+)/); cur = h ? Math.min(N - 1, Number(h[1])) : N - 1;       // start on the latest image
+  draw(); drawCompare();
+}
+function buildStrip() {                                        // the row of small pictures, one for each date
+  const box = $("strip");
+  rows.forEach((r, i) => {
+    const b = document.createElement("button"), c = document.createElement("canvas");
+    b.type = "button"; c.width = 158; c.height = Math.round(158 * H / W);
+    b.append(c, document.createElement("span"));
+    b.addEventListener("click", () => { stop(); go(i); });
+    box.appendChild(b);
+  });
+  box.addEventListener("keydown", e => {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    e.preventDefault(); stop(); go(cur + (e.key === "ArrowRight" ? 1 : -1)); box.children[cur].focus();
+  });
+}
+function markStrip() {
+  const box = $("strip"), b = box.children[cur];
+  [...box.children].forEach((x, i) => x.setAttribute("aria-pressed", String(i === cur)));
+  if (b && box.scrollWidth > box.clientWidth + 1) box.scrollLeft = b.offsetLeft - (box.clientWidth - b.offsetWidth) / 2;
 }
 function draw() {
+  markStrip();
   if (!ready) return;
   ctx.drawImage(imgs[cur], 0, 0, W, H);
   if ($("optGain").checked) ctx.drawImage(gain[cur], 0, 0);
   if ($("optShore").checked) ctx.drawImage(shore[cur], 0, 0);
-  const r = rows[cur];
-  $("dateLabel").textContent = longDate(r.date);
-  cv.setAttribute("aria-label", "Radar image of the Toktogul reservoir on " + longDate(r.date) + ". Detected water surface " + f1(r.area_km2) + " square kilometres.");
-  let t = `<b>${longDate(r.date)}</b> at ${localTime(D.times_utc[cur])} Bishkek time. Water surface: <b>${f1(r.area_km2)} km²</b>`;
-  if (r.area_hi - r.area_lo >= 0.3) t += ` (between ${f1(r.area_lo)} and ${f1(r.area_hi)} if the test is stricter or looser)`;
-  t += cur ? `, ${r.area_km2 >= first.area_km2 ? "+" : "−"}${f1(Math.abs(r.area_km2 - first.area_km2))} km² since ${shortDate(first.date)}.` : ".";
-  if (r.rain_check) t += " The ground was wet: the land is bright, the water is not. We draw the shoreline from days like this.";
-  $("readout").innerHTML = t;
+  $("pins").hidden = !$("optNames").checked;
+  const r = rows[cur], d = r.area_km2 - first.area_km2;
+  cv.setAttribute("aria-label", T.viewAria(fullDate(r.date), num(r.area_km2)));
+  $("vinfo").innerHTML = T.vinfo({date: dateY(r.date), time: localTime(D.times_utc[cur]), night: night[cur], area: num(r.area_km2), delta: cur ? (d >= 0 ? "+" : "−") + num(Math.abs(d)) : "", since: dayMonth(first.date)});
+  const note = T.vnote({band: r.area_hi - r.area_lo >= 0.3, lo: num(r.area_lo), hi: num(r.area_hi), rain: r.rain_check});
+  $("readout").textContent = note; $("readout").hidden = !note;
   markChart();
 }
-function go(i) { cur = Math.max(0, Math.min(N - 1, i)); $("slider").value = cur; draw(); }
-$("slider").max = N - 1;
-$("slider").addEventListener("input", e => { stop(); go(Number(e.target.value)); });
-$("optShore").addEventListener("change", draw); $("optGain").addEventListener("change", draw);
-function stop() { if (timer) { clearInterval(timer); timer = null; $("play").textContent = "Play"; } }
+function drawCompare() {
+  if (!ready || rainIdx < 0) return;
+  $("cmpA").getContext("2d").drawImage(imgs[dryIdx], 0, 0, W, H);
+  $("cmpB").getContext("2d").drawImage(imgs[rainIdx], 0, 0, W, H);
+}
+function go(i) { cur = Math.max(0, Math.min(N - 1, i)); draw(); }
+function stop() { if (timer) { clearInterval(timer); timer = null; $("play").textContent = T.play; $("play").classList.remove("on"); } }
+buildStrip();
+["optShore", "optGain", "optNames"].forEach(id => $(id).addEventListener("change", draw));
 $("play").addEventListener("click", () => {
   if (timer) return stop();
-  $("play").textContent = "Pause"; if (cur === N - 1) go(0);
+  $("play").textContent = T.pause; $("play").classList.add("on"); if (cur === N - 1) go(0);
   timer = setInterval(() => { if (cur === N - 1) stop(); else go(cur + 1); }, 900);
 });
-const rainIdx = rows.findIndex(r => r.rain_check), dryIdx = rainIdx > 0 ? rainIdx - 1 : 0;
-$("toRain").addEventListener("click", () => { stop(); go(rainIdx < 0 ? N - 1 : rainIdx); });
-$("toDry").addEventListener("click", () => { stop(); go(dryIdx); });
+$("cmpRange").addEventListener("input", e => $("compare").style.setProperty("--pos", e.target.value + "%"));
 
 // ---------- chart ----------
-let marker = null;
-const CH = {l: 64, r: 22, t: 58, b: 46, w: 960, h: 392};
-const tx = (() => { const a = dayNum(rows[0].date) - 4, b = dayNum(rows[N - 1].date) + 4; return s => CH.l + (CH.w - CH.l - CH.r) * (dayNum(s) - a) / (b - a); })();
+let marker = null, hair = null, pts = [];
+const CH = {l: 50, r: 22, t: 50, b: 40, w: 800, h: 340};
+const x0d = dayNum(rows[0].date) - 4, x1d = dayNum(rows[N - 1].date) + 4;
+const tx = s => CH.l + (CH.w - CH.l - CH.r) * (dayNum(s) - x0d) / (x1d - x0d);
 const yMin = Math.floor(Math.min(...rows.map(r => r.area_lo)) - 2), yMax = Math.ceil(Math.max(...rows.map(r => r.area_hi)) + 2);
 const ty = v => CH.h - CH.b - (CH.h - CH.t - CH.b) * (v - yMin) / (yMax - yMin);
-(function () {
+const rad = j => rows[j].rain_check ? 5 : 4.5;
+function nearest(e) {
+  const b = $("chart").getBoundingClientRect(), x = (e.clientX - b.left) / b.width * CH.w;
+  let best = 0, bd = Infinity;
+  rows.forEach((r, i) => { const d = Math.abs(tx(r.date) - x); if (d < bd) { bd = d; best = i; } });
+  return best;
+}
+function showTip(i) {
+  const r = rows[i], tip = $("tip"), b = $("chart").getBoundingClientRect(), k = b.width / CH.w;
+  const [v, ...rest] = T.tip({area: num(r.area_km2), date: dateY(r.date), time: localTime(D.times_utc[i]), band: r.area_hi - r.area_lo >= 0.05, lo: num(r.area_lo), hi: num(r.area_hi), rain: r.rain_check});
+  tip.innerHTML = ""; const strong = document.createElement("b"); strong.textContent = v; tip.appendChild(strong);
+  rest.filter(Boolean).forEach(t => { const s = document.createElement("span"); s.textContent = t; tip.appendChild(s); });
+  tip.hidden = false;
+  const half = tip.offsetWidth / 2;
+  tip.style.left = Math.max(half + 2, Math.min(b.width - half - 2, tx(r.date) * k)) + "px"; tip.style.top = Math.max(tip.offsetHeight + 16, ty(r.area_km2) * k) + "px";
+  hair.setAttribute("x1", tx(r.date)); hair.setAttribute("x2", tx(r.date)); hair.setAttribute("opacity", .4);
+  pts.forEach((c, j) => c.setAttribute("r", j === i ? 6.5 : rad(j)));
+}
+function hideTip() { $("tip").hidden = true; if (hair) hair.setAttribute("opacity", 0); pts.forEach((c, j) => c.setAttribute("r", rad(j))); }
+function pick(i) { stop(); go(i); $("view").scrollIntoView({behavior: calm ? "auto" : "smooth", block: "start"}); }
+function markChart() { if (marker) { const x = tx(rows[cur].date); marker.setAttribute("x1", x); marker.setAttribute("x2", x); } }
+function renderChart() {
   const svg = $("chart"), ns = "http://www.w3.org/2000/svg";
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
   const add = (tag, at, txt) => { const e = document.createElementNS(ns, tag); for (const k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; };
+  add("title", {}, T.svgTitle);
   const step = (yMax - yMin) > 14 ? 5 : 2;
   for (let v = Math.ceil(yMin / step) * step; v <= yMax; v += step) {
-    add("line", {x1: CH.l, x2: CH.w - CH.r, y1: ty(v), y2: ty(v), stroke: "#c5d0d4", "stroke-width": 1});
-    add("text", {x: CH.l - 10, y: ty(v) + 5, "text-anchor": "end", "font-size": 14, fill: "#51626b"}, v);
+    add("line", {x1: CH.l, x2: CH.w - CH.r, y1: ty(v), y2: ty(v), stroke: "#e3ecf2", "stroke-width": 1});
+    add("text", {x: CH.l - 8, y: ty(v) + 4.5, "text-anchor": "end", "font-size": 13, fill: "#5b7389"}, v);
   }
-  add("text", {x: CH.l - 46, y: CH.t - 22, "font-size": 14, fill: "#51626b"}, "Water surface, km²");
   CONFIG.official.forEach((o, i) => {
-    if (dayNum(o.date) < dayNum(rows[0].date) - 4 || dayNum(o.date) > dayNum(rows[N - 1].date) + 4) return;
+    if (dayNum(o.date) < x0d || dayNum(o.date) > x1d) return;
     const x = tx(o.date), up = i % 2 ? 17 : 0, left = x > CH.w / 2;
-    add("line", {x1: x, x2: x, y1: CH.t - 4 + up, y2: CH.h - CH.b, stroke: "#13222c", "stroke-width": 1, "stroke-dasharray": "3 4"});
-    add("text", {x: x + (left ? -6 : 6), y: CH.t - 8 + up, "text-anchor": left ? "end" : "start", "font-size": 13.5, fill: "#13222c"}, "official: " + o.v + " bn m³");
+    add("line", {x1: x, x2: x, y1: CH.t - 18 + up, y2: CH.h - CH.b, stroke: "#3f5d75", "stroke-width": 1, "stroke-dasharray": "3 4"});
+    add("text", {x: x + (left ? -6 : 6), y: CH.t - 22 + up, "text-anchor": left ? "end" : "start", "font-size": 12.5, fill: "#12314a"}, T.official(nf(o.v)));
   });
-  add("polygon", {points: rows.map(r => tx(r.date) + "," + ty(r.area_hi)).concat(rows.slice().reverse().map(r => tx(r.date) + "," + ty(r.area_lo))).join(" "), fill: "#1c6e8c", opacity: .18});
-  add("polyline", {points: rows.map(r => tx(r.date) + "," + ty(r.area_km2)).join(" "), fill: "none", stroke: "#1c6e8c", "stroke-width": 2.5, "stroke-linejoin": "round"});
-  marker = add("line", {x1: 0, x2: 0, y1: CH.t + 8, y2: CH.h - CH.b, stroke: "#c98a00", "stroke-width": 2});
-  rows.forEach((r, i) => {
-    const c = add("circle", {cx: tx(r.date), cy: ty(r.area_km2), r: r.rain_check ? 7 : 5, fill: r.rain_check ? "#fff" : "#1c6e8c", stroke: "#1c6e8c", "stroke-width": r.rain_check ? 3 : 0, tabindex: 0, role: "button", "aria-label": longDate(r.date) + ": " + f1(r.area_km2) + " square kilometres", style: "cursor:pointer"});
-    c.addEventListener("click", () => { stop(); go(i); }); c.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); stop(); go(i); } });
-    if (i % 2 === 0 || i === N - 1) add("text", {x: tx(r.date), y: CH.h - CH.b + 22, "text-anchor": "middle", "font-size": 13.5, fill: "#51626b"}, shortDate(r.date));
+  add("polygon", {points: rows.map(r => tx(r.date) + "," + ty(r.area_hi)).concat(rows.slice().reverse().map(r => tx(r.date) + "," + ty(r.area_lo))).join(" "), fill: "#1479a6", opacity: .16});
+  add("polyline", {points: rows.map(r => tx(r.date) + "," + ty(r.area_km2)).join(" "), fill: "none", stroke: "#1479a6", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round"});
+  marker = add("line", {x1: 0, x2: 0, y1: CH.t, y2: CH.h - CH.b, stroke: "#c98500", "stroke-width": 2});
+  hair = add("line", {x1: 0, x2: 0, y1: CH.t, y2: CH.h - CH.b, stroke: "#12314a", "stroke-width": 1, opacity: 0});
+  rows.forEach((r, i) => { if (i % 2 === 0 || i === N - 1) add("text", {x: tx(r.date), y: CH.h - CH.b + 21, "text-anchor": "middle", "font-size": 13, fill: "#5b7389"}, shortDate(r.date)); });
+  const lab = (r, dx, dy, anchor) => add("text", {x: tx(r.date) + dx, y: ty(r.area_km2) + dy, "text-anchor": anchor, "font-size": 13, "font-weight": 600, fill: "#12314a", stroke: "#fff", "stroke-width": 4, "stroke-linejoin": "round", "paint-order": "stroke"}, num(r.area_km2));
+  lab(first, 11, 5, "start"); if (peak !== first) lab(peak, 0, -13, "middle"); if (rows[N - 1] !== peak && N > 2) lab(rows[N - 1], 0, 23, "middle");
+  const hit = add("rect", {x: CH.l - 12, y: CH.t - 8, width: CH.w - CH.l - CH.r + 24, height: CH.h - CH.t - CH.b + 16, fill: "transparent", style: "cursor:pointer"});
+  hit.addEventListener("pointermove", e => showTip(nearest(e)));
+  hit.addEventListener("pointerleave", hideTip);
+  hit.addEventListener("click", e => pick(nearest(e)));
+  pts = rows.map((r, i) => {
+    const c = add("circle", {cx: tx(r.date), cy: ty(r.area_km2), r: rad(i), fill: r.rain_check ? "#fff" : "#1479a6", stroke: r.rain_check ? "#1479a6" : "#fff", "stroke-width": r.rain_check ? 2.5 : 2, tabindex: 0, role: "button", "aria-label": T.pointAria(fullDate(r.date), num(r.area_km2)), style: "pointer-events:none"});
+    c.addEventListener("focus", () => showTip(i)); c.addEventListener("blur", hideTip);
+    c.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(i); } });
+    return c;
   });
-  const second = rows[1];
-  $("chartLede").textContent = `Between ${shortDate(first.date)} and ${shortDate(second.date)} the water surface grew by about ${Math.round(second.area_km2 - first.area_km2)} km². These are the weeks when snow and glaciers melt fastest and the Naryn river runs highest. After mid-July the surface changed little, while the official volume kept rising. One reason may be that the water was then climbing steeper shores, which adds depth but little area. Another is that our method undercounts small changes; see the limits below.`;
-  $("chartNote").innerHTML = `Dots are radar images; click one to see it. Hollow dots are the wet days used to draw the shoreline. The shaded band shows how the answer moves if the test for “dark like water” is stricter or looser. Dashed lines mark dates of official volume figures.`;
+  markChart();
+  const t = $("dataTable"); t.innerHTML = "";
+  const head = t.createTHead().insertRow();
+  T.th.forEach((h, j) => { const th = document.createElement("th"); th.scope = "col"; th.textContent = h; if (j === 2 || j === 3) th.className = "num"; head.appendChild(th); });
+  const body = t.createTBody();
+  rows.forEach((r, i) => { const row = body.insertRow(); [dateY(r.date), localTime(D.times_utc[i]), num(r.area_km2, 2), num(r.area_lo, 2) + "–" + num(r.area_hi, 2), r.rain_check ? T.yes : ""].forEach((v, j) => { const td = row.insertCell(); td.textContent = v; if (j === 2 || j === 3) td.className = "num"; }); });
+}
+
+function renderAll() { renderText(); fixLinks(); renderChart(); draw(); }
+setLang(pickLang(), false);
+boot().catch(e => { $("readout").textContent = "The images could not be loaded: " + e; $("readout").hidden = false; });
+
+// ---------- blocks appear as you scroll ----------
+(function () {
+  const els = document.querySelectorAll(".rv");
+  if (calm || !("IntersectionObserver" in window)) { els.forEach(e => e.classList.add("in")); return; }
+  let seen = false;
+  const io = new IntersectionObserver(es => { seen = true; es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }); }, {rootMargin: "0px 0px -8% 0px"});
+  els.forEach(e => io.observe(e));
+  setTimeout(() => { if (!seen) els.forEach(e => e.classList.add("in")); }, 1500);      // never leave the page blank if the browser does not report scrolling
 })();
-function markChart() { if (marker) { const x = tx(rows[cur].date); marker.setAttribute("x1", x); marker.setAttribute("x2", x); } }
-
-// ---------- method and limits ----------
-const rain = rows.filter(r => r.rain_check).map(r => shortDate(r.date));
-const landUsual = rows.map(r => r.land_hh_db).sort((a, b) => a - b)[Math.floor(N / 2)];
-const boost = rows.filter(r => r.rain_check).map(r => Math.round(r.land_hh_db - landUsual)).sort((a, b) => a - b);
-const boostText = boost[0] === boost[boost.length - 1] ? `about ${boost[0]} dB` : `${boost[0]} to ${boost[boost.length - 1]} dB`;
-[
-  "We read only the reservoir window from each NISAR scene in NASA’s cloud. A full scene is about 2 GB; the window is a few dozen megabytes.",
-  "We use scenes from one orbit only, so the radar looks at the mountains from the same side every time. A change in the picture is then a change on the ground.",
-  `We find the days when the ground was wet (${rain.join(" and ")}): the land near the reservoir is ${boostText} brighter than usual, the water is the same. ${CONFIG.rainNote}`,
-  "Water is what stays dark on those days. That shoreline is the season’s high-water mark.",
-  "For every other date we ask of each shoreline pixel: does it look the way it does on the wet days, when we know it is water? If yes on that date and all dates up to the wet day, it is water."
-].forEach(t => { const li = document.createElement("li"); li.textContent = t; $("steps").appendChild(li); });
-[
-  "The pixels we analyse are 80 m wide. Along a shoreline this long, that leaves the total area uncertain by several square kilometres. The change between dates is more reliable than the total.",
-  "Dry, smooth ground can pass for water between wet days, so growth after mid-July is probably undercounted.",
-  CONFIG.rainLimit,
-  "The narrow canyon next to the dam is only partly counted: steep walls disturb the radar there. Its area hardly changes.",
-  "There are no winter images yet. NISAR data for this area start in June 2026, so we show the reservoir filling, not emptying.",
-  "The volume and the percentage come from official statements, not from the radar. The radar gives the surface area.",
-  "NISAR products are still provisional, and one of our scenes comes from a newer processing version than the others."
-].forEach(t => { const li = document.createElement("li"); li.textContent = t; $("limits").appendChild(li); });
-
-boot().catch(e => { $("readout").textContent = "The images could not be loaded: " + e; });
 </script>
 </body>
 </html>

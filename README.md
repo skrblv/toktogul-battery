@@ -69,7 +69,7 @@ An AI assistant (Claude by Anthropic) helped write the processing code, the webs
 
 ## Team
 
-Baitur Raimzhanov, Amir Konurbaev, Sultan Maksutaliev, Timur Sultanov, Bayeli Taalaibek uulu.
+Baitur Raimzhanov, Sultan Maksutaliev.
 
 ## License
 
